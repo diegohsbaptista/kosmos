@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Assessment Completo da Terceira Camada — um mapa em três eixos (estágios, estados e linhas) para lideranças que criam o futuro. Kosmos.">
+<meta name="theme-color" content="#020407">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kosmos — Assessment Completo da Terceira Camada">
+<meta property="og:description" content="Descubra seu centro de gravidade desenvolvimental, suas falácias pré-trans e o vetor de aceleração da sua consciência.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236272f0'/%3E%3Cstop offset='0.5' stop-color='%23a855f7'/%3E%3Cstop offset='1' stop-color='%23f0c060'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23020407'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='4' fill='url(%23g)'/%3E%3C/svg%3E">
+<title>Kosmos — Assessment Completo da Terceira Camada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020407; --bg2:#050910; --s1:#080e1c; --s2:#0c1428; --s3:#101b34;
+  --border:rgba(120,140,200,0.08); --b2:rgba(120,140,200,0.15); --b3:rgba(120,140,200,0.28);
+  --text:#d8dff0; --muted:#4a5878; --muted2:#7888b0;
+  --indigo:#6272f0; --violet:#a855f7; --uv:#d946ef; --luz:#f0c060;
+  --grad:linear-gradient(135deg,#6272f0 0%,#a855f7 35%,#d946ef 65%,#f0c060 100%);
+  --grad2:linear-gradient(90deg,#6272f0,#a855f7,#d946ef,#f0c060);
+  --ok:#34d399; --warn:#fbbf24; --alert:#fb7185;
+  --ff-d:'Cormorant Garamond',Georgia,serif; --ff-b:'Outfit',system-ui,sans-serif; --ff-m:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-b);font-weight:300;min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6;
+  background-image:radial-gradient(900px 500px at 80% -10%,rgba(98,114,240,.10),transparent 60%),radial-gradient(700px 500px at 0% 110%,rgba(217,70,239,.07),transparent 60%);}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 90px}
+.fade{animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.serif{font-family:var(--ff-d)}
+.mono{font-family:var(--ff-m)}
+.eyebrow{font-family:var(--ff-m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2)}
+h1{font-family:var(--ff-d);font-weight:500;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-.01em}
+h2{font-family:var(--ff-d);font-weight:500;font-size:clamp(24px,4vw,34px);line-height:1.1}
+h3{font-family:var(--ff-d);font-weight:500;font-size:21px;line-height:1.2}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{color:var(--muted2);font-size:15px;max-width:640px}
+.card{background:linear-gradient(180deg,rgba(16,27,52,.55),rgba(8,14,28,.55));border:1px solid var(--border);border-radius:18px;padding:22px;backdrop-filter:blur(8px)}
+.card.glow{border-color:var(--b2);box-shadow:0 0 0 1px rgba(98,114,240,.04),0 30px 80px -40px rgba(98,114,240,.4)}
+.divider{height:1px;background:var(--border);margin:18px 0}
+.btn{font-family:var(--ff-b);font-weight:500;font-size:14px;padding:14px 26px;border-radius:12px;border:none;cursor:pointer;color:#06080f;background:var(--grad2);transition:transform .15s,filter .15s;letter-spacing:.01em}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--b2)}
+.btn.ghost:hover{border-color:var(--b3);background:rgba(120,140,200,.05)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none;filter:none}
+.tag{display:inline-block;font-family:var(--ff-m);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:99px;border:1px solid var(--b2);color:var(--muted2)}
+.input{width:100%;background:rgba(8,14,28,.6);border:1px solid var(--b2);border-radius:12px;padding:13px 16px;color:var(--text);font-family:var(--ff-b);font-size:15px}
+.input:focus{outline:none;border-color:var(--indigo)}
+.prog{height:3px;background:rgba(120,140,200,.12);border-radius:2px;overflow:hidden;margin:18px 0 26px}
+.prog>i{display:block;height:100%;background:var(--grad2);transition:width .4s}
+.opt{width:100%;text-align:left;background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:13px;padding:14px 17px;color:var(--text);font-size:14px;cursor:pointer;margin-bottom:9px;transition:all .14s;display:flex;gap:13px;align-items:flex-start;font-weight:300}
+.opt:hover{border-color:var(--b3);background:rgba(120,140,200,.06)}
+.opt.sel{border-color:var(--indigo);background:rgba(98,114,240,.10)}
+.dot{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--muted);flex-shrink:0;margin-top:2px;transition:all .14s}
+.opt.sel .dot{border-color:var(--indigo);border-width:5px}
+.likert{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.lk{flex:1;min-width:64px;text-align:center;background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:11px;padding:11px 6px;cursor:pointer;font-size:11px;color:var(--muted2);transition:all .14s;line-height:1.3}
+.lk:hover{border-color:var(--b3)}
+.lk.sel{border-color:var(--indigo);background:rgba(98,114,240,.12);color:var(--text)}
+.lk b{display:block;font-family:var(--ff-m);font-size:15px;color:var(--text);margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scale-row{margin-bottom:13px}
+.scale-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;margin-bottom:5px}
+.scale-top .nm{font-weight:400}.scale-top .vl{font-family:var(--ff-m);font-size:11px;color:var(--muted2)}
+.scale-tr{height:7px;border-radius:4px;background:rgba(120,140,200,.10);overflow:hidden;position:relative}
+.scale-fl{height:100%;border-radius:4px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.scale-mk{position:absolute;top:-3px;width:2px;height:13px;background:rgba(216,223,240,.5)}
+.badge{font-family:var(--ff-m);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px;font-weight:500}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px}
+.kv:last-child{border:none}
+.kv .k{color:var(--muted2)}
+.theo{display:inline-block;font-family:var(--ff-m);font-size:9.5px;padding:2px 8px;border-radius:99px;background:rgba(120,140,200,.07);color:var(--muted2);margin:2px 3px 2px 0}
+.matrix{display:grid;gap:4px;margin-top:8px}
+.mx-cell{border-radius:7px;padding:7px 5px;text-align:center;font-size:9.5px;border:1px solid var(--border);color:var(--muted2);transition:all .2s}
+.mx-cell.you{border-color:var(--luz);color:var(--text);box-shadow:0 0 22px -6px var(--luz)}
+.mx-head{font-family:var(--ff-m);font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:3px}
+.flag{border-left:2px solid;padding:11px 14px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:13px;background:rgba(120,140,200,.04)}
+.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:rgba(2,4,7,.72);border-bottom:1px solid var(--border);margin:-28px -18px 22px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between}
+.nav .lg{font-family:var(--ff-d);font-size:20px;letter-spacing:.02em}
+.nav .lg b{font-weight:600}
+.tabs{display:flex;gap:6px}
+.tab{font-family:var(--ff-m);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:99px;border:1px solid var(--border);color:var(--muted2);cursor:pointer;transition:all .15s}
+.tab.on{border-color:var(--b3);color:var(--text);background:rgba(120,140,200,.07)}
+.sec-h{display:flex;align-items:center;gap:11px;margin:30px 0 14px}
+.sec-h .n{font-family:var(--ff-m);font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:3px 8px}
+.practice{background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:13px;padding:14px 16px;margin-bottom:9px;cursor:pointer;transition:all .14s;display:flex;gap:13px;align-items:flex-start}
+.practice:hover{border-color:var(--b3)}
+.practice.sel{border-color:var(--indigo);background:rgba(98,114,240,.08)}
+.chk{width:21px;height:21px;border-radius:7px;border:1.5px solid var(--muted);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .14s;font-size:13px}
+.practice.sel .chk{background:var(--indigo);border-color:var(--indigo);color:#06080f}
+.mod-lbl{font-family:var(--ff-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin:18px 0 9px}
+.week-grid{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.wk{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:9px;color:var(--muted2);flex-direction:column;gap:1px;transition:all .12s}
+.wk.done{color:#06080f;border-color:transparent}
+.wk:hover{border-color:var(--b3)}
+.streak{font-family:var(--ff-m);font-size:11px;color:var(--luz)}
+.snap-btn{font-family:var(--ff-m);font-size:11px;color:var(--indigo);cursor:pointer;border:1px dashed var(--b2);border-radius:9px;padding:8px 12px;background:transparent;transition:all .14s}
+.snap-btn:hover{border-color:var(--indigo);background:rgba(98,114,240,.06)}
+.note{font-size:11.5px;color:var(--muted);font-family:var(--ff-m)}
+@media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}.tabs{display:none}.viz2{flex-direction:column}}
+.viz2{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div id="app" class="wrap fade"></div>
+<footer style="max-width:1080px;margin:0 auto;padding:0 18px 42px;text-align:center;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#39435f;line-height:1.7">ACESSO PESSOAL E INTRANSFERÍVEL · VINCULADO À SUA COMPRA<br><span style="color:#2c3450">Kosmos · Assessment da Terceira Camada</span></footer>
+
+<script>
+/* ════════════════════════ DESIGN / STAGE SPINE ════════════════════════ */
+const C=['#fb923c','#4ade80','#2dd4bf','#22d3ee','#6272f0','#a855f7','#d946ef']; // gradiente de ascensão (1ª→3ª camada)
+const STAGES=[
+ {name:'Realizador\u2013Racional',alt:'Laranja \u00b7 Racional',tier:'1\u00aa camada',estado:'Vig\u00edlia (operacional formal)',
+  teoricos:['Graves: Laranja','Cook-Greuter: Realizador','Kohlberg: p\u00f3s-convencional inicial'],
+  lead:'Cria futuro pelo desempenho: inova\u00e7\u00e3o, m\u00e9rito e resultados que movem o mundo adiante. V\u00ea o mundo como um sistema a otimizar e vencer.',
+  luz:'Pensamento l\u00f3gico, cient\u00edfico e orientado a metas; capacidade de planejar, realizar e gerar progresso concreto no mundo.',
+  sombra:'Reduz valor a desempenho; trata o mundo como recurso; sucede sem perguntar a servi\u00e7o de qu\u00ea.',
+  pretrans:'Confundir compet\u00eancia t\u00e9cnica e sucesso material com maturidade de consci\u00eancia. Realizar mais n\u00e3o \u00e9 evoluir verticalmente.',
+  futuros:'Inova\u00e7\u00e3o de impacto, empreendedorismo de prop\u00f3sito, ci\u00eancia aplicada ao bem comum.'},
+ {name:'Pluralista\u2013Sens\u00edvel',alt:'Verde \u00b7 Pluralista',tier:'1\u00aa camada',estado:'Sutil intersubjetivo',
+  teoricos:['Graves: Verde','Cook-Greuter: Individualista','Wade: Afiliativa'],
+  lead:'Cria futuro ampliando quem participa: d\u00e1 voz aos marginalizados e cuida do planeta e dos vulner\u00e1veis do mundo.',
+  luz:'Sustenta a multiplicidade de perspectivas com empatia contextual e cuidado mundic\u00eantrico e ecol\u00f3gico genu\u00edno.',
+  sombra:'Paralisia relativista: dificuldade de decidir, hierarquizar valores e exercer autoridade quando o mundo precisa de dire\u00e7\u00e3o.',
+  pretrans:'Confundir aus\u00eancia de hierarquia (pr\u00e9) com inclus\u00e3o de hierarquias (p\u00f3s). O igualitarismo radical pode mascarar a recusa em liderar.',
+  futuros:'Movimentos de justi\u00e7a, di\u00e1logo social, economias colaborativas, ativismo ecol\u00f3gico.'},
+ {name:'Estrat\u00e9gico\u2013Integral',alt:'Teal / Amarelo \u00b7 2\u00aa camada',tier:'2\u00aa camada',estado:'Sutil (vis\u00e3o-l\u00f3gica)',
+  teoricos:['Torbert: Estrategista','Cook-Greuter: Aut\u00f4nomo (E7)','Graves: Amarelo','Wilber: Integral'],
+  lead:'Cria futuro desenhando arquiteturas civilizacionais: integra perspectivas e equilibra polaridades em escala societal e planet\u00e1ria.',
+  luz:'Pensa em sistemas e fluxos, navega paradoxos e transita entre l\u00f3gica, intui\u00e7\u00e3o e corpo a servi\u00e7o do todo.',
+  sombra:'Mapa sem territ\u00f3rio: modelos sofisticados que n\u00e3o viram a\u00e7\u00e3o no mundo; o estrategista isolado que poucos acompanham.',
+  pretrans:'Sofistica\u00e7\u00e3o cognitiva (ganho horizontal) simulando est\u00e1gio (vertical). Falar fluentemente o mapa integral n\u00e3o \u00e9 encarn\u00e1-lo.',
+  futuros:'Organiza\u00e7\u00f5es regenerativas, pol\u00edticas p\u00fablicas integrais, ecossistemas de inova\u00e7\u00e3o social.'},
+ {name:'Hol\u00edstico\u2013Alqu\u00edmico',alt:'Turquesa \u00b7 2\u00aa camada',tier:'2\u00aa camada',estado:'Causal (acesso)',
+  teoricos:['Torbert: Alquimista','Graves: Turquesa','Cook-Greuter: in\u00edcio Construct-aware'],
+  lead:'Cria futuro por resson\u00e2ncia de campo: sua presen\u00e7a reorganiza sistemas inteiros, tratando o planeta como um organismo vivo.',
+  luz:'Permeabilidade com o todo; compaix\u00e3o que n\u00e3o se consome. Trabalha com o campo planet\u00e1rio, n\u00e3o s\u00f3 com as partes.',
+  sombra:'Bypass espiritual: usar o hol\u00edstico para evitar conflito, responsabilidade pr\u00e1tica e encarna\u00e7\u00e3o no mundo.',
+  pretrans:'Transcender sem incluir a sombra \u00e9 regress\u00e3o disfar\u00e7ada de eleva\u00e7\u00e3o. A pr\u00e9-trans em a\u00e7\u00e3o.',
+  futuros:'Design bioregional, governan\u00e7a regenerativa, redes globais de cura de campo.'},
+ {name:'Mente Iluminada',alt:'\u00cdndigo \u00b7 Sutil objetivado',tier:'3\u00aa camada',estado:'Sutil estabilizado',
+  teoricos:['Cook-Greuter: Construct-aware (E8)','Torbert: Ironista','Aurobindo: Mente Iluminada'],
+  lead:'Cria futuro como ve\u00edculo de um impulso evolutivo encarnado agora \u2014 n\u00e3o por agenda pessoal, mas a servi\u00e7o do mundo que quer nascer.',
+  luz:'A Testemunha como identidade. Percebe a pr\u00f3pria mente construindo a realidade e age mesmo assim, com lucidez kosmoc\u00eantrica.',
+  sombra:'N\u00e3o traduz altitude em linguagem comum; estranheza crescente com o mundo convencional.',
+  pretrans:'A lucidez sem encarna\u00e7\u00e3o vira niilismo ("nada \u00e9 real") ou infla\u00e7\u00e3o ("transcendi tudo").',
+  futuros:'Governan\u00e7a kosmoc\u00eantrica, laborat\u00f3rios de futuros emergentes, assembleias planet\u00e1rias de vis\u00e3o.'},
+ {name:'Mente Intuitiva',alt:'Violeta \u00b7 Causal objetivado',tier:'3\u00aa camada',estado:'Causal estabilizado',
+  teoricos:['Cook-Greuter: Unitivo (E9)','Aurobindo: Mente Intuitiva','Torbert: al\u00e9m do Ironista'],
+  lead:'Cria futuro por superabund\u00e2ncia: decis\u00f5es emergem do sil\u00eancio sem c\u00e1lculo, e a a\u00e7\u00e3o para o mundo nasce do transbordo, n\u00e3o da falta.',
+  luz:'Insight sem esfor\u00e7o cognitivo; a\u00e7\u00e3o que d\u00e1 sem esgotar, serve sem drenar. Eros vivo a servi\u00e7o da evolu\u00e7\u00e3o.',
+  sombra:'Solid\u00e3o existencial profunda; o essencial torna-se inexprim\u00edvel, e isso d\u00f3i.',
+  pretrans:'Estado unitivo de pico confundido com estrutura unitiva permanente. A distin\u00e7\u00e3o estado\u2194tra\u00e7o \u00e9 o ant\u00eddoto.',
+  futuros:'Redes de coer\u00eancia planet\u00e1ria, infraestruturas de consci\u00eancia coletiva, sabedoria intergeracional.'},
+ {name:'N\u00e3o-dual Encarnado',alt:'Ultravioleta \u2192 Luz Clara',tier:'3\u00aa camada',estado:'N\u00e3o-dual objetivado',
+  teoricos:['Aurobindo: Sobremente / Supermente','Cook-Greuter: unitivo estabilizado','Maslow: autotranscend\u00eancia'],
+  lead:'Cria futuro como responsabilidade absoluta pela evolu\u00e7\u00e3o do mundo. "N\u00e3o estou aqui para me libertar, mas para criar o futuro." Unidade encarnada na mat\u00e9ria.',
+  luz:'A unidade \u00e9 base est\u00e1vel, n\u00e3o pico. Autoridade vem do fundamento do ser, n\u00e3o do cargo nem do m\u00e9rito.',
+  sombra:'Dificuldade de permanecer encarnado; aus\u00eancia de agenda pessoal pode parecer aus\u00eancia de dire\u00e7\u00e3o.',
+  pretrans:'A fal\u00e1cia final: confundir dissolu\u00e7\u00e3o (pr\u00e9-pessoal, regressiva) com unidade (transpessoal, integrativa).',
+  futuros:'Cocria\u00e7\u00e3o de futuros kosmoc\u00eantricos encarnados, coordena\u00e7\u00e3o planet\u00e1ria, economias de dons.'}
+];
+
+/* ════════════════════════ EIXO 3 · LINHAS ════════════════════════ */
+const LINES=[
+ {id:'cog',name:'Cognitiva',teo:'Aurobindo \u00b7 vis\u00e3o-l\u00f3gica',
+  items:['Considero m\u00faltiplas perspectivas e contextos antes de concluir, sem buscar uma \u00fanica verdade.',
+         'Reconhe\u00e7o padr\u00f5es sist\u00eamicos que conectam fen\u00f4menos sociais, ecol\u00f3gicos e econ\u00f4micos num campo s\u00f3.',
+         'O conhecimento mais decisivo me chega como reconhecimento direto, antes de qualquer racioc\u00ednio discursivo.']},
+ {id:'self',name:'Self / Ego-identidade',teo:'Loevinger \u00b7 Cook-Greuter',
+  items:['Reconhe\u00e7o que minha identidade \u00e9 moldada pela cultura e pelo contexto em que vivo.',
+         'Decido a partir de princ\u00edpios pr\u00f3prios que examinei, mesmo contra a expectativa do grupo.',
+         '"Eu Sou" \u00e9 uma presen\u00e7a sentida no corpo, anterior a qualquer papel, conquista ou hist\u00f3ria sobre mim.']},
+ {id:'val',name:'Valores',teo:'Graves \u00b7 Spiral Dynamics',
+  items:['Valorizo igualdade, pertencimento e o cuidado com o coletivo acima da competi\u00e7\u00e3o.',
+         'Integro perspectivas contradit\u00f3rias sem precisar que uma esteja totalmente certa.',
+         'Ajo a servi\u00e7o do impulso evolutivo do todo, acima de ganho pessoal ou valida\u00e7\u00e3o cultural.']},
+ {id:'mor',name:'Moral',teo:'Kohlberg',
+  items:['Minha \u00e9tica se guia por justi\u00e7a, direitos e bem-estar de todas as pessoas.',
+         'Considero os direitos de quem n\u00e3o est\u00e1 na sala \u2014 gera\u00e7\u00f5es futuras, seres n\u00e3o-humanos, o planeta.',
+         'Sinto uma responsabilidade que excede o \u00e9tico-convencional: uma necessidade sentida de servir \u00e0 evolu\u00e7\u00e3o.']},
+ {id:'rel',name:'Interpessoal / Afetiva',teo:'desenvolvimento relacional',
+  items:['Escuto com empatia e busco compreender o sentimento por tr\u00e1s do que o outro diz.',
+         'Consigo reconstruir o argumento de quem discordo na forma mais forte antes de responder.',
+         'Minha mera presen\u00e7a tende a acalmar e reorganizar o campo emocional de um grupo.']},
+ {id:'som',name:'Som\u00e1tica / Corporal',teo:'encarna\u00e7\u00e3o',
+  items:['Percebo e respeito os sinais do meu corpo \u2014 cansa\u00e7o, tens\u00e3o, energia.',
+         'Percebo o que o corpo j\u00e1 sabe antes de a mente concluir a an\u00e1lise \u2014 e confio nisso.',
+         'Habito plenamente o corpo enquanto acesso estados expandidos \u2014 n\u00e3o me desencarno para "subir".']},
+ {id:'esp',name:'Espiritual',teo:'linha de realiza\u00e7\u00e3o',
+  items:['Cultivo momentos de sil\u00eancio, presen\u00e7a ou gratid\u00e3o na minha rotina.',
+         'Acesso estados de sil\u00eancio onde a separa\u00e7\u00e3o entre mim e o mundo afrouxa.',
+         'A unidade \u2014 ser inseparável de tudo \u2014 \u00e9 uma forma familiar e acess\u00edvel de estar, n\u00e3o um evento raro.']}
+];
+
+/* ════════════════════════ EIXO 2 · ESTADOS ════════════════════════ */
+const STATES=[
+ {id:'denso',name:'Denso / Vigília',desc:'Presença plena no corpo e no mundo material.'},
+ {id:'sutil',name:'Sutil',desc:'Energia, intuição, visão interior, sonho lúcido.'},
+ {id:'causal',name:'Causal',desc:'Vastidão sem forma; o silêncio entre os pensamentos.'},
+ {id:'test',name:'Testemunha',desc:'A consciência que observa, constante em vigília, sonho e sono.'},
+ {id:'nd',name:'Não-Dual',desc:'Colapso sujeito-objeto; o mundo surge dentro da consciência.'}
+];
+// cada estado: 1 item de frequência (pico) + 1 de estabilidade (platô)
+const STATE_ITEMS={
+ denso:['Sinto-me plenamente presente e encarnado no aqui-agora.','Essa presença encarnada é meu estado-base estável, não exceção.'],
+ sutil:['Acesso estados de intuição vívida, fluxo energético ou percepção sutil.','Esse acesso é confiável e disponível quando preciso, não apenas espontâneo e raro.'],
+ causal:['Acesso o silêncio profundo e sem forma na contemplação.','Repouso nesse vazio com naturalidade, não apenas em picos ocasionais.'],
+ test:['Experimento ser a Testemunha que observa pensamentos e emoções sem se identificar.','A Testemunha persiste como pano de fundo mesmo na ação cotidiana intensa.'],
+ nd:['Vivo momentos em que a fronteira entre mim e tudo desaparece.','A não-dualidade é uma forma familiar de estar, não um evento extraordinário isolado.']
+};
+
+/* ════════════════════════ ITENS DE ESTÁGIO (cenário + perspectiva) ════════════════════════ */
+// cada opção carrega um peso de estágio (índice 0..5)
+const STAGE_Q=[
+ {type:'Cen\u00e1rio de lideran\u00e7a',q:'Diante de uma grande crise civilizacional (clim\u00e1tica, social, tecnol\u00f3gica) sem solu\u00e7\u00e3o clara, seu primeiro movimento mais genu\u00edno \u00e9:',
+  opts:[
+   {t:'Buscar a solu\u00e7\u00e3o mais eficaz e comprovada, e execut\u00e1-la com excel\u00eancia e rapidez.',s:0},
+   {t:'Garantir que os mais vulner\u00e1veis e todas as vozes sejam ouvidos antes de qualquer decis\u00e3o.',s:1},
+   {t:'Mapear as for\u00e7as sist\u00eamicas em jogo e desenhar uma interven\u00e7\u00e3o que equilibre o todo.',s:2},
+   {t:'Acalmar meu pr\u00f3prio campo de presen\u00e7a e deixar a clareza reorganizar o coletivo antes do plano.',s:3},
+   {t:'Sentir o futuro que quer emergir atrav\u00e9s desta crise e tornar-me o ve\u00edculo dele.',s:4}]},
+ {type:'Cen\u00e1rio de lideran\u00e7a',q:'Quando olho para tr\u00e1s, minhas decis\u00f5es mais importantes para o mundo nasceram de:',
+  opts:[
+   {t:'Cuidado com as pessoas e o desejo de incluir quem \u00e9 deixado de fora.',s:1},
+   {t:'Um princ\u00edpio pr\u00f3prio e uma leitura sist\u00eamica de longo prazo.',s:2},
+   {t:'Uma percep\u00e7\u00e3o do campo: o que o coletivo precisava para se reorganizar.',s:3},
+   {t:'Um impulso evolutivo sentido como dire\u00e7\u00e3o, maior que minha agenda pessoal.',s:4},
+   {t:'Uma certeza revelada no sil\u00eancio, sem c\u00e1lculo \u2014 que transbordou em a\u00e7\u00e3o.',s:5}]},
+ {type:'Completar a perspectiva',q:'"Quando sou duramente criticado em p\u00fablico pelo meu trabalho, o que acontece em mim \u00e9\u2026"',
+  opts:[
+   {t:'\u2026foco em corrigir e provar meu valor pelos resultados.',s:0},
+   {t:'\u2026preocupa\u00e7\u00e3o em restaurar a harmonia e o v\u00ednculo.',s:1},
+   {t:'\u2026separo a informa\u00e7\u00e3o \u00fatil do ru\u00eddo, sem levar para o pessoal.',s:2},
+   {t:'\u2026observo a reatividade surgir e passar, sem que ela me capture como identidade.',s:4},
+   {t:'\u2026h\u00e1 espa\u00e7o silencioso onde a cr\u00edtica surge e se dissolve, sem um centro a defender.',s:5}]},
+ {type:'Completar a perspectiva',q:'"O prop\u00f3sito mais profundo do meu trabalho no mundo \u00e9\u2026"',
+  opts:[
+   {t:'\u2026alcan\u00e7ar excel\u00eancia, reconhecimento e impacto mensur\u00e1vel.',s:0},
+   {t:'\u2026dar voz a quem n\u00e3o tem e cuidar das pessoas e do planeta.',s:1},
+   {t:'\u2026construir sistemas e institui\u00e7\u00f5es que funcionem melhor para a sociedade inteira.',s:2},
+   {t:'\u2026elevar a coer\u00eancia e a consci\u00eancia dos campos coletivos por onde passo.',s:3},
+   {t:'\u2026servir \u00e0 evolu\u00e7\u00e3o do todo \u2014 eu sou o Kosmos despertando para criar o futuro.',s:5}]}
+];
+
+/* ════════════════════════ PRÁTICAS DA VIDA SUPER-INTEGRAL ════════════════════════ */
+const MODS=[
+ {id:'corpo',name:'Corpo · Encarnação',c:'#4ade80'},
+ {id:'mente',name:'Mente · Maturação',c:'#38bdf8'},
+ {id:'espirito',name:'Espírito · Despertar',c:'#a855f7'},
+ {id:'sombra',name:'Sombra · Integração',c:'#fb7185'},
+ {id:'cocriacao',name:'Cocriação · Futuros',c:'#f0c060'}
+];
+const PRACTICES=[
+ {id:'c1',mod:'corpo',tag:'som',title:'Ancoragem em três densidades',dur:'15min · diário',desc:'Atenção que percorre o corpo denso (sensação), o sutil (fluxo de respiração) e a vastidão causal que contém ambos.',fut:'Encarnação para sustentar altitudes mais altas sem desencarnar.'},
+ {id:'c2',mod:'corpo',tag:'som',title:'Respiração de coerência',dur:'5min · antes de decidir',desc:'Respiração pausada e ritmada para regular o sistema nervoso antes de decisões de alto risco.',fut:'Liderança que decide de um estado regulado, não reativo.'},
+ {id:'c3',mod:'corpo',tag:'denso',title:'Escuta da Terra',dur:'1h · semanal',desc:'Tempo na natureza sem agenda, percebendo a interioridade do lugar e do ecossistema local.',fut:'Base experiencial para design bioregional.'},
+ {id:'m1',mod:'mente',tag:'cog',title:'Inquérito pós-ação',dur:'10min · semanal',desc:'Após uma ação importante: nasceu de regra, papel ou princípio? Transformou o sistema ou só reagiu a ele?',fut:'Lógica de ação que amadurece pela reflexão estruturada.'},
+ {id:'m2',mod:'mente',tag:'self',title:'Rastreio do impulso evolutivo',dur:'15min · semanal',desc:'"O que quer emergir através de mim neste momento da evolução?" — focar no impulso, não só no propósito pessoal.',fut:'Clareza de missão kosmocêntrica.'},
+ {id:'m3',mod:'mente',tag:'cog',title:'Checagem de familiaridade',dur:'reflexão · semanal',desc:'Auditoria honesta: estou vivendo isto, ou apenas falando o mapa? Onde meu vocabulário excede minha experiência?',fut:'Antídoto ao "conhecimento por descrição" — a armadilha do líder integral.'},
+ {id:'m4',mod:'mente',tag:'rel',title:'Yoga de perspectivas',dur:'15min · semanal',desc:'Habitar deliberadamente a 1ª, 2ª e 3ª pessoa sobre um problema vivo, antes de concluir.',fut:'Decisões que incluem o interior e o exterior, o individual e o coletivo.'},
+ {id:'e1',mod:'espirito',tag:'test',title:'Presença do Vidente (Eu Sou)',dur:'20min · diário',desc:'Ancorar a identidade na presença que permanece quando papéis, pensamentos e emoções são removidos.',fut:'Identidade transpessoal estável para liderar sistemas complexos sem perder o centro.'},
+ {id:'e2',mod:'espirito',tag:'causal',title:'Grande Silêncio',dur:'30–60min · semanal',desc:'Sentar sem objeto, técnica ou objetivo. Permanecer na presença sem forma.',fut:'Acessa o estado causal que fundamenta decisões de sabedoria.'},
+ {id:'e3',mod:'espirito',tag:'nd',title:'Indagação não-dual',dur:'20min · diário',desc:'"Quem está ciente disto?" — indagação direta da natureza da consciência, sem método, apenas a pergunta.',fut:'Coordenação kosmocêntrica a partir do ser, antes da ação.'},
+ {id:'e4',mod:'espirito',tag:'sutil',title:'As três faces do Sagrado',dur:'15min · semanal',desc:'Contemplar o fundamento como Isso (a perfeição de tudo que surge), como Tu (comunhão e gratidão) e como Eu (a Testemunha).',fut:'Integra as três pessoas do Espírito na liderança encarnada.'},
+ {id:'s1',mod:'sombra',tag:'self',title:'O espelho da projeção',dur:'20min · semanal',desc:'Identificar uma carga forte (admiração ou irritação intensa) por alguém, tratá-la como parte exilada de si, dialogar por escrito e reapropriar a qualidade.',fut:'Recupera energia vital aprisionada na sombra — combustível para criar.'},
+ {id:'s2',mod:'sombra',tag:'esp',title:'Inventário de bypass',dur:'reflexão · semanal',desc:'Onde usei "espiritualidade" para evitar um conflito, uma conversa difícil ou uma responsabilidade prática esta semana?',fut:'Garante que a transcendência inclua, em vez de fugir — o coração do anti-bypass.'},
+ {id:'s3',mod:'sombra',tag:'rel',title:'Aproximar o evitado',dur:'10min · diário',desc:'Voltar-se com amizade exatamente para aquilo que se evita — uma emoção, uma pessoa, uma verdade.',fut:'Maturidade relacional para liderar em conflito real.'},
+ {id:'k1',mod:'cocriacao',tag:'self',title:'Ativação do papel evolutivo',dur:'3h · mensal',desc:'Identificar e ativar o papel único que sua vida ocupa no campo maior. O projeto pessoal como célula de um organismo planetário.',fut:'O eu separado se dissolve no papel kosmocêntrico — e o futuro ganha um vetor.'},
+ {id:'k2',mod:'cocriacao',tag:'cog',title:'Memória do futuro',dur:'45min · mensal',desc:'Design fiction solarpunk: prototipar a partir de um futuro kosmocêntrico desejado, escrevendo/desenhando como se o recordasse.',fut:'A ficção habitada cria o campo que atrai o futuro.'},
+ {id:'k3',mod:'cocriacao',tag:'val',title:'Dupla saída',dur:'reflexão · semanal',desc:'Para cada integração interior, nomear a contribuição sistêmica concreta que ela destrava no mundo.',fut:'Transforma desenvolvimento pessoal em cocriação planetária.'},
+ {id:'k4',mod:'cocriacao',tag:'rel',title:'Campo caórdico',dur:'variável',desc:'Sustentar presença produtiva na tensão entre caos e ordem, sem colapsar a complexidade em respostas prematuras.',fut:'Liderança que prospera na incerteza onde lideranças de camadas anteriores travam.'}
+];
+
+const LK=['Nunca','Raramente','Às vezes','Frequentemente','Sempre'];
+
+/* ════════════════════════ STORAGE (window.storage com fallback) ════════════════════════ */
+const MEM={};
+function hasLS(){try{const x='__k';localStorage.setItem(x,'1');localStorage.removeItem(x);return true;}catch(e){return false;}}
+const store={
+ async get(k){
+   try{if(window.storage){const r=await window.storage.get(k);return r?JSON.parse(r.value):null;}}catch(e){}
+   try{if(hasLS()){const v=localStorage.getItem(k);if(v!=null)return JSON.parse(v);}}catch(e){}
+   return (k in MEM)?MEM[k]:null;
+ },
+ async set(k,v){
+   MEM[k]=v;
+   try{if(window.storage){await window.storage.set(k,JSON.stringify(v));return;}}catch(e){}
+   try{if(hasLS()){localStorage.setItem(k,JSON.stringify(v));}}catch(e){}
+ }
+};
+const PERSISTS=(typeof window!=='undefined')&&(!!window.storage||hasLS());
+
+/* ════════════════════════ STATE ════════════════════════ */
+let S={screen:'intro',name:'',
+  step:0, // 0 lines,1 states,2 stageQ
+  lineAns:{}, stateAns:{}, stageAns:[],
+  qi:0, // index dentro do passo
+  result:null, selected:new Set(), log:{}, snaps:[]
+};
+const app=()=>document.getElementById('app');
+function go(s){S.screen=s;render();window.scrollTo(0,0);}
+
+/* ════════════════════════ SCORING ════════════════════════ */
+function lineScore(id){const a=S.lineAns[id]||[0,0,0];const raw=a[0]*0.33+a[1]*0.66+a[2]*1.0;return Math.min(100,Math.round(raw/7.96*100));}
+function lineStage(sc){return sc<18?0:sc<38?1:sc<60?2:sc<78?3:sc<90?4:sc<97?5:6;}
+function stateScore(id){const a=S.stateAns[id]||[0,0];return {access:Math.round(a[0]/4*100),plateau:a[1]>=a[0]&&a[0]>=2,raw:a};}
+function compute(){
+ const lines={}; LINES.forEach(l=>{const sc=lineScore(l.id);lines[l.id]={score:sc,stage:lineStage(sc)};});
+ const states={}; STATES.forEach(s=>states[s.id]=stateScore(s.id));
+ // estágio: votos de cenário/perspectiva + linhas-âncora (cog,self,val)
+ const votes=new Array(7).fill(0);
+ S.stageAns.forEach((opt,i)=>{if(opt!=null){votes[STAGE_Q[i].opts[opt].s]+=2;}});
+ ['cog','self','val'].forEach(id=>{votes[lines[id].stage]+=1;});
+ // centro de gravidade = média ponderada arredondada; emergente = pico acima; anterior = abaixo
+ let total=votes.reduce((a,b)=>a+b,0)||1;
+ let cog_g=0; votes.forEach((v,i)=>cog_g+=v*i); cog_g=cog_g/total;
+ const primary=Math.max(0,Math.min(6,Math.round(cog_g)));
+ const emergent=Math.min(6,primary+1);
+ const anterior=Math.max(0,primary-1);
+ // coef geral
+ const overall=Math.round((LINES.reduce((a,l)=>a+lines[l.id].score,0)/LINES.length));
+ // estados elevados médios (sutil/causal/nd)
+ const highStates=(states.sutil.access+states.causal.access+states.nd.access)/3;
+ // flags pré-trans
+ const flags=[];
+ if(highStates>55 && primary<3) flags.push({t:'Estados acima do estágio',c:'var(--warn)',d:'Você acessa estados elevados (sutil/causal/não-dual) que ainda são interpretados por um estágio estrutural mais convencional. É a assinatura clássica da falácia pré-trans: a experiência é real, mas a moldura que a lê ainda não é transpessoal. Risco de inflação ou de literalizar o vislumbre.'});
+ const others=(lines.self.score+lines.val.score+lines.mor.score+lines.rel.score+lines.som.score)/5;
+ if(lines.cog.score-others>22) flags.push({t:'Familiaridade vs. descrição',c:'var(--alert)',d:'Sua linha cognitiva está bem acima das demais. Sinal de que você domina o vocabulário da terceira camada mais do que o encarna. A armadilha do líder integral: falar o mapa e confundir isso com habitar o território. O crescimento aqui é descer o conhecimento para o corpo, a sombra e a relação.'});
+ if(lines.som.score < others-18) flags.push({t:'Topo pesado, base leve',c:'var(--warn)',d:'Sua linha somática está atrás das demais. Altitude sem encarnação é instável: estados elevados sem base corporal tendem a oscilar e a gerar desencarnação. A linha somática é a prioridade — não a sua linha mais forte.'});
+ if(highStates>60 && states.denso.access<55) flags.push({t:'Subir sem ancorar',c:'var(--warn)',d:'Forte acesso a estados expandidos com presença encarnada (Denso) mais baixa. Lembre-se: Supermente é o limite vertical, mas a encarnação é o que torna a realização útil ao mundo. Ancorar é parte do caminho, não um passo anterior a ele.'});
+ // limiar dos 51%
+ const higherVotes=votes.slice(4).reduce((a,b)=>a+b,0);
+ const threshold=Math.round(higherVotes/total*100);
+ // linha líder / atrasada
+ const arr=LINES.map(l=>({id:l.id,name:l.name,score:lines[l.id].score})).sort((a,b)=>b.score-a.score);
+ return {lines,states,primary,emergent,anterior,overall,flags,threshold,leader:arr[0],lagger:arr[arr.length-1],highStates:Math.round(highStates)};
+}
+
+/* ════════════════════════ INTRO ════════════════════════ */
+function renderIntro(){
+ app().innerHTML=`
+ <div class="eyebrow" style="text-align:center;margin-bottom:18px">Kosmos · Avaliação Premium</div>
+ <div style="text-align:center;margin-bottom:8px"><h1>Assessment Completo<br><span class="grad-text serif">da Terceira Camada</span></h1></div>
+ <p class="lead" style="margin:18px auto 8px;text-align:center">Um mapa em três eixos para lideranças que criam o futuro. Não medimos um ponto — medimos seu território: os <b style="color:var(--text);font-weight:500">estágios</b> que você habita, os <b style="color:var(--text);font-weight:500">estados</b> que você acessa e as <b style="color:var(--text);font-weight:500">linhas</b> que compõem o seu psicógrafo. E, ao cruzá-los, revelamos suas falácias pré-trans e as sombras a integrar.</p>
+ <p class="note" style="text-align:center;margin:14px auto 26px">Indicador de autopercepção desenvolvimental · ~14 min · relatório completo + painel de monitoramento</p>
+ <div class="card glow" style="max-width:520px;margin:0 auto">
+   <div class="eyebrow" style="margin-bottom:10px">Antes de começar</div>
+   <input class="input" id="nm" placeholder="Seu nome ou como prefere ser chamado" style="margin-bottom:14px"/>
+   <div class="grid3" style="gap:10px;margin-bottom:18px">
+     <div style="text-align:center"><div class="serif" style="font-size:30px">3</div><div class="note">eixos</div></div>
+     <div style="text-align:center"><div class="serif" style="font-size:30px">7</div><div class="note">linhas</div></div>
+     <div style="text-align:center"><div class="serif" style="font-size:30px">7</div><div class="note">estágios</div></div>
+   </div>
+   <button class="btn" id="start" style="width:100%">Iniciar meu mapeamento</button>
+   <p class="note" style="text-align:center;margin-top:13px">Responda com honestidade radical. Aqui não há respostas certas — só o seu mapa real.</p>
+ </div>`;
+ document.getElementById('start').onclick=()=>{S.name=document.getElementById('nm').value.trim();S.step=0;S.qi=0;go('assess');};
+}
+
+/* ════════════════════════ ASSESSMENT ════════════════════════ */
+function assessTotal(){return LINES.length+STATES.length+STAGE_Q.length;}
+function assessDone(){
+ let n=0; LINES.forEach(l=>{if(S.lineAns[l.id])n++;}); STATES.forEach(s=>{if(S.stateAns[s.id])n++;}); S.stageAns.forEach(a=>{if(a!=null)n++;}); return n;
+}
+function renderAssess(){
+ const total=assessTotal();
+ // qual item global estamos
+ let html='';
+ const pct=assessDone()/total*100;
+ if(S.step===0){ // LINHAS
+   const l=LINES[S.qi]; const a=S.lineAns[l.id]||[null,null,null];
+   html=`<div class="tag" style="margin-bottom:14px">Eixo 3 · Linhas de desenvolvimento</div>
+   <h2 class="serif">${l.name}</h2><div class="note" style="margin:4px 0 18px">${l.teo}</div>
+   ${l.items.map((it,j)=>`<div class="card" style="margin-bottom:12px;padding:16px 18px">
+     <div style="font-size:14px;font-weight:300">${it}</div>
+     <div class="likert" data-li="${l.id}" data-j="${j}">${LK.map((lb,v)=>`<div class="lk${a[j]===v?' sel':''}" data-v="${v}"><b>${v+1}</b>${lb}</div>`).join('')}</div>
+   </div>`).join('')}`;
+ } else if(S.step===1){ // ESTADOS
+   const s=STATES[S.qi]; const a=S.stateAns[s.id]||[null,null]; const it=STATE_ITEMS[s.id];
+   html=`<div class="tag" style="margin-bottom:14px">Eixo 2 · Estados de consciência</div>
+   <h2 class="serif">${s.name}</h2><div class="note" style="margin:4px 0 18px">${s.desc}</div>
+   ${it.map((t,j)=>`<div class="card" style="margin-bottom:12px;padding:16px 18px">
+     <div class="eyebrow" style="margin-bottom:8px">${j===0?'Frequência de acesso':'Estabilidade (platô vs. pico)'}</div>
+     <div style="font-size:14px;font-weight:300">${t}</div>
+     <div class="likert" data-st="${s.id}" data-j="${j}">${LK.map((lb,v)=>`<div class="lk${a[j]===v?' sel':''}" data-v="${v}"><b>${v+1}</b>${lb}</div>`).join('')}</div>
+   </div>`).join('')}`;
+ } else { // ESTÁGIO
+   const q=STAGE_Q[S.qi]; const a=S.stageAns[S.qi];
+   html=`<div class="tag" style="margin-bottom:14px">Eixo 1 · ${q.type}</div>
+   <h2 class="serif" style="font-size:25px;line-height:1.25">${q.q}</h2><div style="margin-top:18px">
+   ${q.opts.map((o,j)=>`<button class="opt${a===j?' sel':''}" data-sq="${j}"><span class="dot"></span><span>${o.t}</span></button>`).join('')}
+   </div>`;
+ }
+ const stepDone = (S.step===0&&S.lineAns[LINES[S.qi].id]&&S.lineAns[LINES[S.qi].id].every(x=>x!=null))
+   || (S.step===1&&S.stateAns[STATES[S.qi].id]&&S.stateAns[STATES[S.qi].id].every(x=>x!=null))
+   || (S.step===2&&S.stageAns[S.qi]!=null);
+ const isLast = S.step===2 && S.qi===STAGE_Q.length-1;
+ app().innerHTML=`
+ <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+   <div class="note" id="back" style="cursor:pointer">← voltar</div>
+   <div class="note">${assessDone()} / ${total}</div>
+ </div>
+ <div class="prog"><i style="width:${pct}%"></i></div>
+ <div class="fade">${html}</div>
+ <div style="margin-top:22px;display:flex;justify-content:flex-end">
+   <button class="btn" id="next" ${stepDone?'':'disabled'}>${isLast?'Ver meu relatório completo':'Continuar'}</button>
+ </div>`;
+ // handlers
+ document.querySelectorAll('.likert').forEach(grp=>{
+   grp.querySelectorAll('.lk').forEach(b=>b.onclick=()=>{
+     const v=+b.dataset.v, j=+grp.dataset.j;
+     if(grp.dataset.li){const id=grp.dataset.li;S.lineAns[id]=S.lineAns[id]||[null,null,null];S.lineAns[id][j]=v;}
+     else{const id=grp.dataset.st;S.stateAns[id]=S.stateAns[id]||[null,null];S.stateAns[id][j]=v;}
+     renderAssess();
+   });
+ });
+ document.querySelectorAll('.opt[data-sq]').forEach(b=>b.onclick=()=>{S.stageAns[S.qi]=+b.dataset.sq;renderAssess();});
+ document.getElementById('back').onclick=()=>{
+   if(S.qi>0){S.qi--;} else if(S.step>0){S.step--;S.qi=(S.step===0?LINES.length:STATES.length)-1;} else {go('intro');return;}
+   renderAssess();
+ };
+ document.getElementById('next').onclick=()=>{
+   const max=(S.step===0?LINES.length:S.step===1?STATES.length:STAGE_Q.length)-1;
+   if(S.qi<max){S.qi++;} else if(S.step<2){S.step++;S.qi=0;} else {finish();return;}
+   renderAssess();
+ };
+}
+async function finish(){S.result=compute();await store.set('kosmos_ac_result',{name:S.name,result:S.result,date:Date.now()});go('dash');}
+
+/* ════════════════════════ VIZ HELPERS ════════════════════════ */
+function avatarSVG(){
+ const r=S.result, pl=r.primary, ol=r.overall/100, seg=160/7;
+ let segs='';
+ for(let i=0;i<7;i++){const lit=Math.min(1,(LINES.reduce((a,l)=>a+(r.lines[l.id].stage>=i?r.lines[l.id].score/100:0),0)/LINES.length));
+   const y=170-(i+1)*seg; segs+=`<rect x="30" y="${y}" width="34" height="${seg-2.5}" rx="4" fill="${C[i]}" opacity="${0.14+ (i<=pl?0.78:0.20)*(0.5+ol*0.5)}"/>`;}
+ return `<svg width="100" height="195" viewBox="0 0 100 195"><circle cx="47" cy="17" r="13" fill="${C[pl]}" opacity="${0.35+ol*0.6}"/>${segs}<text x="47" y="190" text-anchor="middle" font-size="9" fill="#7888b0" font-family="DM Mono">coef ${r.overall}%</text></svg>`;
+}
+function radarSVG(){
+ const r=S.result,cx=110,cy=108,R=82,N=LINES.length;
+ const pt=(i,rr)=>{const a=-Math.PI/2+i*2*Math.PI/N;return[cx+Math.cos(a)*rr*R,cy+Math.sin(a)*rr*R];};
+ let g='';for(let ring=1;ring<=3;ring++){let p=[];for(let i=0;i<N;i++)p.push(pt(i,ring/3).join(','));g+=`<polygon points="${p.join(' ')}" fill="none" stroke="rgba(120,140,200,0.10)" stroke-width="1"/>`;}
+ for(let i=0;i<N;i++){const[x,y]=pt(i,1);g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(120,140,200,0.08)"/>`;}
+ const poly=LINES.map((l,i)=>pt(i,Math.max(.05,r.lines[l.id].score/100)).join(',')).join(' ');
+ let labs='';LINES.forEach((l,i)=>{const[x,y]=pt(i,1.2);labs+=`<text x="${x}" y="${y}" text-anchor="middle" font-size="8.5" fill="#7888b0" font-family="DM Mono">${l.name.split(' ')[0]}</text>`;});
+ let dots='';LINES.forEach((l,i)=>{const[x,y]=pt(i,Math.max(.05,r.lines[l.id].score/100));dots+=`<circle cx="${x}" cy="${y}" r="2.5" fill="${C[r.lines[l.id].stage]}"/>`;});
+ return `<svg width="220" height="216" viewBox="0 0 220 216"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6272f0"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs>${g}<polygon points="${poly}" fill="url(#rg)" fill-opacity="0.16" stroke="url(#rg)" stroke-width="1.8"/>${dots}${labs}</svg>`;
+}
+
+/* ════════════════════════ DASHBOARD / RELATÓRIO ════════════════════════ */
+function renderDash(){
+ const r=S.result, st=STAGES[r.primary];
+ const stBadge=(i)=>`<span class="badge" style="background:${C[i]}22;color:${C[i]}">${STAGES[i].name}</span>`;
+ // linhas em escala
+ const lineScales=LINES.map(l=>{const o=r.lines[l.id];return `<div class="scale-row">
+   <div class="scale-top"><span class="nm">${l.name} <span class="theo">${STAGES[o.stage].alt.split(' ')[0]}</span></span><span class="vl">${o.score}%</span></div>
+   <div class="scale-tr"><div class="scale-fl" style="width:${o.score}%;background:${C[o.stage]}"></div>
+   ${[1,2,3,4,5].map(m=>`<div class="scale-mk" style="left:${m/6*100}%"></div>`).join('')}</div></div>`;}).join('');
+ // estados
+ const stateScales=STATES.map(s=>{const o=r.states[s.id];return `<div class="scale-row">
+   <div class="scale-top"><span class="nm">${s.name}</span><span class="vl">${o.access}% · ${o.access<25?'—':o.plateau?'platô':'pico'}</span></div>
+   <div class="scale-tr"><div class="scale-fl" style="width:${o.access}%;background:${o.plateau?'linear-gradient(90deg,#6272f0,#a855f7)':'#7888b0'}"></div></div></div>`;}).join('');
+ // matriz estado x estágio (Wilber-Combs reduzida)
+ const stCols=['Denso','Sutil','Causal','Test.','N-Dual'];
+ const youStateIdx=(()=>{let best=0,bv=-1;STATES.forEach((s,i)=>{if(r.states[s.id].access>bv){bv=r.states[s.id].access;best=i;}});return best;})();
+ let matrix=`<div class="matrix" style="grid-template-columns:90px repeat(5,1fr)"><div></div>${stCols.map(c=>`<div class="mx-head">${c}</div>`).join('')}`;
+ for(let sIdx=6;sIdx>=0;sIdx--){matrix+=`<div class="mx-head" style="text-align:right;padding-right:6px">${STAGES[sIdx].name.split('–')[0].split(' ')[0]}</div>`;
+   for(let stIdx=0;stIdx<5;stIdx++){const you=(sIdx===r.primary&&stIdx===youStateIdx);matrix+=`<div class="mx-cell${you?' you':''}">${you?'você':''}</div>`;}}
+ matrix+='</div>';
+ // práticas recomendadas
+ const recIds=recommend();
+ // futuros do estágio
+ app().innerHTML=`
+ ${navBar('dash')}
+ <div class="card glow" style="margin-bottom:16px">
+   <div class="eyebrow" style="margin-bottom:8px">${S.name?S.name+' · ':''}Seu centro de gravidade</div>
+   <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center">
+     <div>${avatarSVG()}</div>
+     <div style="flex:1;min-width:230px">
+       <h1 class="serif" style="font-size:clamp(30px,5vw,46px)">${st.name}</h1>
+       <div class="grad-text serif" style="font-size:20px;margin:2px 0 5px">${st.alt}</div>
+       <div style="margin-bottom:10px"><span class="tag" style="border-color:${C[r.primary]}55;color:${C[r.primary]}">${st.tier}</span></div>
+       <p style="color:var(--muted2);font-size:14px">${st.lead}</p>
+       <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">${st.teoricos.map(t=>`<span class="theo">${t}</span>`).join('')}</div>
+     </div>
+   </div>
+   <div class="divider"></div>
+   <div class="grid3">
+     <div><div class="eyebrow" style="margin-bottom:6px">Lógica anterior</div>${stBadge(r.anterior)}<div class="note" style="margin-top:6px">Para onde você regride sob estresse.</div></div>
+     <div><div class="eyebrow" style="margin-bottom:6px">Lógica atual</div>${stBadge(r.primary)}<div class="note" style="margin-top:6px">Seu sistema operacional dominante hoje.</div></div>
+     <div><div class="eyebrow" style="margin-bottom:6px">Lógica emergente</div>${stBadge(r.emergent)}<div class="note" style="margin-top:6px">O que já pulsa como próximo passo.</div></div>
+   </div>
+ </div>
+
+ <div class="grid2">
+   <div class="card">
+     <div class="sec-h" style="margin-top:0"><h3 class="serif">Psicógrafo das linhas</h3></div>
+     <div class="viz2" style="margin-bottom:14px">${radarSVG()}</div>
+     ${lineScales}
+     <div class="divider"></div>
+     <div class="kv"><span class="k">Linha-líder</span><span>${r.leader.name} · ${r.leader.score}%</span></div>
+     <div class="kv"><span class="k">Linha-atrasada (prioridade)</span><span style="color:var(--luz)">${r.lagger.name} · ${r.lagger.score}%</span></div>
+     <p class="note" style="margin-top:10px">A prática prioritária trabalha a linha <b style="color:var(--text)">atrasada</b>, não a mais forte — é onde está o seu próximo crescimento real.</p>
+   </div>
+   <div class="card">
+     <div class="sec-h" style="margin-top:0"><h3 class="serif">Acesso a estados</h3></div>
+     ${stateScales}
+     <p class="note" style="margin-top:6px">Barra sólida colorida = <b style="color:var(--text)">platô</b> (estável). Barra cinza = <b style="color:var(--text)">pico</b> (acesso real, mas ainda não estabilizado).</p>
+     <div class="divider"></div>
+     <div class="sec-h" style="margin-top:0"><h3 class="serif" style="font-size:18px">Matriz Estado × Estágio</h3></div>
+     ${matrix}
+     <p class="note" style="margin-top:9px">O mesmo estado é lido de forma diferente conforme o estágio que o interpreta. A sua célula mostra onde estados e estrutura se encontram — o motor da detecção pré-trans.</p>
+   </div>
+ </div>
+
+ <div class="card" style="margin-top:16px">
+   <div class="sec-h" style="margin-top:0"><span class="n">⚠</span><h3 class="serif">Relatório de falácias pré-trans e sombras a integrar</h3></div>
+   ${r.flags.length?r.flags.map(f=>`<div class="flag" style="border-color:${f.c}"><b style="color:${f.c};font-weight:500">${f.t}.</b> ${f.d}</div>`).join(''):'<p class="lead">Seu perfil não acusa as confusões pré-trans mais comuns no momento — suas linhas, estados e estágio estão razoavelmente alinhados. Continue vigilante: a sombra mais perigosa é a que nos parece já integrada.</p>'}
+   <div class="divider"></div>
+   <div class="grid2">
+     <div><div class="eyebrow" style="margin-bottom:6px">Limiar dos 51%</div>
+       <div class="scale-tr"><div class="scale-fl" style="width:${r.threshold}%;background:var(--grad2)"></div></div>
+       <p class="note" style="margin-top:8px">${r.threshold}% das suas respostas-chave operam a partir da terceira camada. ${r.threshold>=51?'O self kosmocêntrico já é a parte dominante do seu sistema — você cruzou o limiar.':'O ego condicionado ainda governa boa parte das decisões. Cruzar os 51% é o ponto de virada da transformação.'}</p>
+     </div>
+     <div><div class="eyebrow" style="margin-bottom:6px">Sombra do seu estágio</div>
+       <p style="font-size:13px;color:var(--muted2)">${st.sombra}</p>
+       <p style="font-size:13px;color:var(--muted2);margin-top:8px"><b style="color:var(--text);font-weight:500">Falácia no limiar:</b> ${st.pretrans}</p>
+     </div>
+   </div>
+ </div>
+
+ <div class="card glow" style="margin-top:16px">
+   <div class="sec-h" style="margin-top:0"><h3 class="serif">O vetor: de onde você está → para onde pode estar</h3></div>
+   <div class="grid3">
+     <div class="card" style="background:rgba(8,14,28,.4)"><div class="eyebrow" style="margin-bottom:6px">Próximo estágio</div><div class="serif" style="font-size:19px">${STAGES[r.emergent].name}</div><p class="note" style="margin-top:6px">${STAGES[r.emergent].alt}</p></div>
+     <div class="card" style="background:rgba(8,14,28,.4)"><div class="eyebrow" style="margin-bottom:6px">Próximo estado a estabilizar</div><div class="serif" style="font-size:19px">${nextState()}</div><p class="note" style="margin-top:6px">De pico para platô.</p></div>
+     <div class="card" style="background:rgba(8,14,28,.4)"><div class="eyebrow" style="margin-bottom:6px">Próxima linha a crescer</div><div class="serif" style="font-size:19px">${r.lagger.name}</div><p class="note" style="margin-top:6px">Sua alavanca de maior impacto.</p></div>
+   </div>
+   <div class="divider"></div>
+   <div class="eyebrow" style="margin-bottom:8px">Cocriação de futuros kosmocêntricos</div>
+   <p class="lead" style="max-width:none">A partir deste estágio, o que antes era impossível torna-se cocriável: <b style="color:var(--text);font-weight:400">${st.futuros}</b> Cada salto interior é também um destravamento de capacidade sistêmica — essa é a dupla saída do desenvolvimento.</p>
+ </div>
+
+ <div class="card" style="margin-top:16px">
+   <div class="sec-h" style="margin-top:0"><h3 class="serif">Práticas da Vida Super-Integral</h3></div>
+   <p class="lead" style="margin-bottom:6px">Selecionadas para o seu próximo passo — priorizando a linha atrasada e as falácias detectadas. Marque as que vai assumir; elas formarão seu painel de monitoramento.</p>
+   <div id="prac-list"></div>
+   <button class="btn" id="toMonitor" style="margin-top:16px;width:100%">Gerar meu painel de monitoramento →</button>
+ </div>`;
+ renderPractices(recIds);
+ document.getElementById('toMonitor').onclick=async()=>{await store.set('kosmos_ac_selected',[...S.selected]);go('monitor');};
+}
+function nextState(){const order=['denso','sutil','causal','test','nd'];const r=S.result;for(const id of order){if(!r.states[id].plateau&&r.states[id].access>15)return STATES.find(s=>s.id===id).name;}return 'Não-Dual';}
+function recommend(){
+ const r=S.result, ids=new Set();
+ // 1-2 práticas da linha atrasada
+ const tagPrac=PRACTICES.filter(p=>p.tag===r.lagger.id); tagPrac.slice(0,2).forEach(p=>ids.add(p.id));
+ // práticas ligadas a flags
+ if(r.flags.some(f=>f.t.includes('Familiaridade'))){['s1','s2'].forEach(i=>ids.add(i));}
+ if(r.flags.some(f=>f.t.includes('Topo')||f.t.includes('ancorar'))){['c1','c2'].forEach(i=>ids.add(i));}
+ if(r.flags.some(f=>f.t.includes('Estados acima'))){ids.add('s2');ids.add('m3');}
+ // próximo estado
+ const ns=nextState();
+ const map={'Sutil':'e4','Causal':'e2','Testemunha':'e1','Não-Dual':'e3','Denso / Vigília':'c1'};
+ if(map[ns])ids.add(map[ns]);
+ // sempre 1 de cocriação
+ ids.add('k3');
+ // garante variedade mínima
+ if(ids.size<5){PRACTICES.forEach(p=>{if(ids.size<6)ids.add(p.id);});}
+ [...ids].forEach(i=>S.selected.add(i));
+ return [...ids];
+}
+function renderPractices(recIds){
+ const wrap=document.getElementById('prac-list'); let html='';
+ MODS.forEach(m=>{
+   const ps=PRACTICES.filter(p=>p.mod===m.id);
+   html+=`<div class="mod-lbl" style="color:${m.c}">${m.name}</div>`;
+   ps.forEach(p=>{const rec=recIds.includes(p.id),sel=S.selected.has(p.id);
+     html+=`<div class="practice${sel?' sel':''}" data-p="${p.id}">
+       <div class="chk">${sel?'✓':''}</div>
+       <div style="flex:1">
+         <div style="font-weight:500;font-size:14px">${p.title} ${rec?'<span class="badge" style="background:rgba(240,192,96,.15);color:var(--luz);margin-left:5px">recomendada</span>':''}</div>
+         <div class="note" style="margin:3px 0 5px">${p.dur} · desenvolve ${labelFor(p.tag)}</div>
+         <div style="font-size:12.5px;color:var(--muted2)">${p.desc}</div>
+         <div style="font-size:11px;color:${m.c};margin-top:6px;font-family:var(--ff-m)">↗ ${p.fut}</div>
+       </div></div>`;});
+ });
+ wrap.innerHTML=html;
+ wrap.querySelectorAll('.practice').forEach(el=>el.onclick=()=>{const id=el.dataset.p;if(S.selected.has(id))S.selected.delete(id);else S.selected.add(id);renderPractices(recIds);});
+}
+function labelFor(tag){const l=LINES.find(x=>x.id===tag);if(l)return 'linha '+l.name.split(' ')[0];const s=STATES.find(x=>x.id===tag);if(s)return 'estado '+s.name.split(' ')[0];return tag;}
+
+/* ════════════════════════ PAINEL DE MONITORAMENTO ════════════════════════ */
+function navBar(active){
+ return `<div class="nav"><div class="lg">k<b>o</b>smos</div>
+   <div class="tabs">
+     <div class="tab ${active==='dash'?'on':''}" data-t="dash">Relatório</div>
+     <div class="tab ${active==='monitor'?'on':''}" data-t="monitor">Monitoramento</div>
+     <div class="tab" data-t="intro">Refazer</div>
+   </div></div>`;
+}
+function bindNav(){document.querySelectorAll('.tab[data-t]').forEach(t=>t.onclick=()=>{const d=t.dataset.t;if(d==='intro'){S=Object.assign(S,{lineAns:{},stateAns:{},stageAns:[],selected:new Set(),step:0,qi:0,result:null});go('intro');}else go(d);});}
+function weekKeys(){const out=[];const now=new Date();for(let i=7;i>=0;i--){const d=new Date(now);d.setDate(now.getDate()-i*7);const y=d.getFullYear();const onejan=new Date(y,0,1);const wk=Math.ceil((((d-onejan)/86400000)+onejan.getDay()+1)/7);out.push({key:y+'-W'+wk,label:'S'+wk});}return out;}
+async function renderMonitor(){
+ // carregar logs/snaps
+ S.log = await store.get('kosmos_ac_log') || {};
+ S.snaps = await store.get('kosmos_ac_snaps') || [];
+ const r=S.result; const sel=[...S.selected];
+ const wks=weekKeys();
+ const monthLabel=new Date().toLocaleDateString('pt-BR',{month:'long',year:'numeric'});
+ // práticas
+ let pracHtml = sel.length? sel.map(id=>{
+   const p=PRACTICES.find(x=>x.id===id); const m=MODS.find(x=>x.id===p.mod);
+   const log=S.log[id]||{};
+   const streak=wks.filter(w=>log[w.key]).length;
+   return `<div class="card" style="margin-bottom:10px;padding:15px 17px">
+     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+       <div><span style="font-weight:500">${p.title}</span> <span class="theo" style="color:${m.c}">${m.name.split(' ')[0]}</span></div>
+       <span class="streak">${streak}/8 semanas</span>
+     </div>
+     <div class="note" style="margin-top:3px">${p.dur}</div>
+     <div class="week-grid">${wks.map(w=>`<div class="wk${log[w.key]?' done':''}" data-p="${id}" data-w="${w.key}" style="${log[w.key]?'background:'+m.c:''}">${w.label}</div>`).join('')}</div>
+   </div>`;
+ }).join('') : '<p class="lead">Você ainda não selecionou práticas. Volte ao relatório para escolhê-las.</p>';
+
+ // trend de níveis
+ const allSnaps=[...S.snaps];
+ const trend = snapsTrendSVG(allSnaps);
+ app().innerHTML=`
+ ${navBar('monitor')}
+ <div class="eyebrow" style="margin-bottom:6px">Painel de evolução · ${monthLabel}</div>
+ <h2 class="serif" style="margin-bottom:6px">Acompanhe sua jornada ao longo dos meses</h2>
+ <p class="lead" style="margin-bottom:20px">Registre suas práticas a cada semana e tire uma fotografia mensal dos seus níveis. Com o tempo, o painel revela a curva real da sua evolução — não a percebida.</p>
+
+ <div class="grid2">
+   <div class="card">
+     <div class="sec-h" style="margin-top:0"><h3 class="serif">Níveis ao longo do tempo</h3></div>
+     <div style="text-align:center;margin:6px 0 10px">${trend}</div>
+     <div class="kv"><span class="k">Coeficiente atual</span><span>${r.overall}%</span></div>
+     <div class="kv"><span class="k">Estágio atual</span><span>${STAGES[r.primary].name}</span></div>
+     <div class="kv"><span class="k">Fotografias registradas</span><span>${allSnaps.length}</span></div>
+     <button class="snap-btn" id="snap" style="margin-top:12px;width:100%">+ Registrar fotografia deste mês</button>
+     <p class="note" style="margin-top:8px">Tire uma fotografia por mês. Para uma releitura completa, refaça o assessment — cada releitura entra na curva.</p>
+   </div>
+   <div class="card">
+     <div class="sec-h" style="margin-top:0"><h3 class="serif">Psicógrafo de referência</h3></div>
+     <div class="viz2">${radarSVG()}</div>
+     <p class="note" style="margin-top:8px">Sua linha-prioridade segue sendo <b style="color:var(--luz)">${r.lagger.name}</b>. Observe se ela sobe nas próximas fotografias.</p>
+   </div>
+ </div>
+
+ <div class="card" style="margin-top:16px">
+   <div class="sec-h" style="margin-top:0"><h3 class="serif">Suas práticas · check-in semanal</h3></div>
+   <p class="note" style="margin-bottom:14px">Toque numa semana para marcar como cumprida. S = número da semana do ano.</p>
+   ${pracHtml}
+ </div>
+ <p class="note" style="text-align:center;margin-top:18px">${PERSISTS?'Seu progresso é salvo automaticamente neste navegador.':'Modo de sessão: o progresso não será mantido ao fechar a aba neste ambiente.'}</p>`;
+
+ bindNav();
+ document.querySelectorAll('.wk').forEach(w=>w.onclick=async()=>{
+   const id=w.dataset.p,k=w.dataset.w; S.log[id]=S.log[id]||{}; S.log[id][k]=!S.log[id][k];
+   await store.set('kosmos_ac_log',S.log); renderMonitor();
+ });
+ document.getElementById('snap').onclick=async()=>{
+   S.snaps.push({date:Date.now(),overall:r.overall,primary:r.primary,lines:Object.fromEntries(LINES.map(l=>[l.id,r.lines[l.id].score]))});
+   await store.set('kosmos_ac_snaps',S.snaps); renderMonitor();
+ };
+}
+function snapsTrendSVG(snaps){
+ const W=300,H=140,pad=24;
+ if(!snaps.length) return `<svg width="${W}" height="${H}"><text x="${W/2}" y="${H/2}" text-anchor="middle" fill="#4a5878" font-size="11" font-family="DM Mono">sem fotografias ainda</text></svg>`;
+ const pts=snaps.map((s,i)=>{const x=pad+(snaps.length===1?0.5:i/(snaps.length-1))*(W-2*pad);const y=H-pad-(s.overall/100)*(H-2*pad);return[x,y,s];});
+ let path=pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' ');
+ let dots=pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="${C[p[2].primary]}"/>`).join('');
+ let grid='';for(let g=0;g<=4;g++){const y=pad+g/4*(H-2*pad);grid+=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="rgba(120,140,200,0.08)"/>`;}
+ return `<svg width="${W}" height="${H}"><defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#6272f0"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs>${grid}<path d="${path}" fill="none" stroke="url(#tg)" stroke-width="2"/>${dots}<text x="${pad}" y="${H-6}" fill="#4a5878" font-size="9" font-family="DM Mono">${new Date(snaps[0].date).toLocaleDateString('pt-BR',{month:'short'})}</text><text x="${W-pad}" y="${H-6}" text-anchor="end" fill="#4a5878" font-size="9" font-family="DM Mono">${new Date(snaps[snaps.length-1].date).toLocaleDateString('pt-BR',{month:'short'})}</text></svg>`;
+}
+
+/* ════════════════════════ ROUTER ════════════════════════ */
+function render(){
+ const el=app();el.classList.remove('fade');void el.offsetWidth;el.classList.add('fade');
+ if(S.screen==='intro')return renderIntro();
+ if(S.screen==='assess')return renderAssess();
+ if(S.screen==='dash'){renderDash();bindNav();return;}
+ if(S.screen==='monitor')return renderMonitor();
+}
+render();
+</script>
+</body>
+</html>
