@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Indicador de Centro de Gravidade — descubra em qual estágio de desenvolvimento da consciência você opera hoje. Um mapa gratuito da Kosmos para lideranças que criam o futuro.">
+<meta name="theme-color" content="#020407">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kosmos — Indicador de Centro de Gravidade">
+<meta property="og:description" content="Em 5 minutos, descubra em qual estágio da terceira camada você opera hoje — e para onde sua consciência pode evoluir.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236272f0'/%3E%3Cstop offset='0.5' stop-color='%23a855f7'/%3E%3Cstop offset='1' stop-color='%23f0c060'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23020407'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='4' fill='url(%23g)'/%3E%3C/svg%3E">
+<title>Kosmos — Indicador de Centro de Gravidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020407;--s1:#080e1c;--s2:#0c1428;--s3:#101b34;
+  --border:rgba(120,140,200,0.08);--b2:rgba(120,140,200,0.15);--b3:rgba(120,140,200,0.28);
+  --text:#d8dff0;--muted:#4a5878;--muted2:#7888b0;
+  --indigo:#6272f0;--violet:#a855f7;--uv:#d946ef;--luz:#f0c060;
+  --grad:linear-gradient(135deg,#6272f0 0%,#a855f7 35%,#d946ef 65%,#f0c060 100%);
+  --grad2:linear-gradient(90deg,#6272f0,#a855f7,#d946ef,#f0c060);
+  --ff-d:'Cormorant Garamond',Georgia,serif;--ff-b:'Outfit',system-ui,sans-serif;--ff-m:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-b);font-weight:300;min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6;
+  background-image:radial-gradient(900px 500px at 80% -10%,rgba(98,114,240,.10),transparent 60%),radial-gradient(700px 500px at 0% 110%,rgba(217,70,239,.07),transparent 60%);}
+.wrap{max-width:600px;margin:0 auto;padding:30px 18px 60px}
+.fade{animation:fade .45s ease}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.serif{font-family:var(--ff-d)}.mono{font-family:var(--ff-m)}
+.eyebrow{font-family:var(--ff-m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2)}
+h1{font-family:var(--ff-d);font-weight:500;font-size:clamp(32px,7vw,52px);line-height:1.05;letter-spacing:-.01em}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{color:var(--muted2);font-size:15px}
+.card{background:linear-gradient(180deg,rgba(16,27,52,.55),rgba(8,14,28,.55));border:1px solid var(--border);border-radius:18px;padding:22px;backdrop-filter:blur(8px)}
+.card.glow{border-color:var(--b2);box-shadow:0 30px 80px -40px rgba(98,114,240,.4)}
+.btn{font-family:var(--ff-b);font-weight:500;font-size:14px;padding:15px 26px;border-radius:12px;border:none;cursor:pointer;color:#06080f;background:var(--grad2);transition:transform .15s,filter .15s;letter-spacing:.01em;display:inline-block;text-decoration:none;text-align:center}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none;filter:none}
+.prog{height:3px;background:rgba(120,140,200,.12);border-radius:2px;overflow:hidden;margin:16px 0 26px}
+.prog>i{display:block;height:100%;background:var(--grad2);transition:width .4s}
+.q-text{font-family:var(--ff-d);font-size:23px;line-height:1.3;margin:14px 0 22px}
+.likert{display:flex;flex-direction:column;gap:8px}
+.lk{width:100%;text-align:left;background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:12px;padding:13px 16px;cursor:pointer;font-size:14px;color:var(--text);transition:all .14s;display:flex;gap:12px;align-items:center;font-weight:300}
+.lk:hover{border-color:var(--b3);background:rgba(120,140,200,.06)}
+.lk.sel{border-color:var(--indigo);background:rgba(98,114,240,.10)}
+.lk .n{font-family:var(--ff-m);font-size:12px;color:var(--muted2);width:16px;flex-shrink:0}
+.lk.sel .n{color:var(--indigo)}
+.note{font-size:11.5px;color:var(--muted);font-family:var(--ff-m)}
+.back{font-size:12px;color:var(--muted);cursor:pointer;transition:color .12s}.back:hover{color:var(--text)}
+.orb{width:96px;height:96px;border-radius:50%;margin:0 auto 6px}
+.spectrum{height:9px;border-radius:5px;background:linear-gradient(90deg,#fb923c,#4ade80,#2dd4bf,#22d3ee,#6272f0,#a855f7,#d946ef);position:relative;margin:26px 0 8px}
+.spec-mk{position:absolute;top:-5px;width:3px;height:19px;background:#fff;border-radius:2px;box-shadow:0 0 10px rgba(255,255,255,.6);transform:translateX(-50%)}
+.spec-labels{display:flex;justify-content:space-between;font-family:var(--ff-m);font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.tag{display:inline-block;font-family:var(--ff-m);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:99px;border:1px solid var(--b2)}
+.lock{position:relative;overflow:hidden;border-radius:13px;border:1px solid var(--border);padding:15px 17px;margin-bottom:9px;background:rgba(8,14,28,.4)}
+.lock .ltitle{font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px}
+.lock .ltease{font-size:12.5px;color:var(--muted2);margin-top:4px;filter:blur(3px);user-select:none;opacity:.7}
+.lock .licon{margin-left:auto;font-size:13px;color:var(--luz)}
+.sec-h{display:flex;align-items:center;gap:10px;margin:26px 0 12px}
+.sec-h .l{height:1px;flex:1;background:var(--border)}
+@media(max-width:420px){.wrap{padding:24px 14px 50px}}
+</style>
+</head>
+<body>
+<div id="app" class="wrap fade"></div>
+<footer style="max-width:600px;margin:0 auto;padding:0 18px 40px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:#39435f;line-height:1.7">KOSMOS · INDICADOR DE CENTRO DE GRAVIDADE</footer>
+
+<script>
+/* ═══ EDITE AQUI: link da sua LP / checkout do produto pago ═══ */
+const CTA_URL = "https://SUA-LP.lovable.app";
+
+const C=['#fb923c','#4ade80','#2dd4bf','#22d3ee','#6272f0','#a855f7','#d946ef'];
+const STAGES=[
+ {name:'Realizador–Racional',alt:'Laranja · 1ª camada',
+  framing:'Você opera com a força do realizador: lógica, mérito e resultados que movem o mundo adiante. É a consciência que constrói, executa e faz acontecer. Há aqui uma potência enorme de manifestação — e um convite silencioso a perguntar a serviço de quê toda essa capacidade está trabalhando.'},
+ {name:'Pluralista–Sensível',alt:'Verde · 1ª camada',
+  framing:'Seu centro de gravidade pulsa no cuidado: você enxerga quem é deixado de fora, sente o planeta e honra a multiplicidade de vozes. É uma consciência mundicêntrica, sensível e inclusiva. A fronteira do seu crescimento está em transformar essa sensibilidade em direção capaz de liderar o mundo, não só de acolhê-lo.'},
+ {name:'Estratégico–Integral',alt:'Teal · 2ª camada',
+  framing:'Você já habita a segunda camada: pensa em sistemas, integra perspectivas e navega paradoxos que paralisam a maioria. Enxerga o tecido que conecta economia, ecologia e cultura, e desenha respostas em escala civilizacional. Daqui, o próximo salto não é pensar melhor — é encarnar o que já se compreende.'},
+ {name:'Holístico–Alquímico',alt:'Turquesa · 2ª camada',
+  framing:'Sua consciência opera por ressonância de campo: sua presença reorganiza sistemas antes mesmo da fala, e você sente o planeta como um organismo vivo do qual é parte. É o ápice da segunda camada, no limiar da terceira. O convite agora é sutil e profundo — incluir a sombra em vez de transcendê-la.'},
+ {name:'Mente Iluminada',alt:'Índigo · 3ª camada',
+  framing:'Você toca a terceira camada: o "Eu Sou" já não é ideia, mas presença sentida no corpo, e sua vida se revela como veículo de um impulso evolutivo maior que qualquer agenda pessoal. É uma altitude rara. O trabalho aqui é traduzir essa lucidez em linguagem e ação que o mundo consiga receber.'},
+ {name:'Mente Intuitiva',alt:'Violeta · 3ª camada',
+  framing:'Seu centro de gravidade acessa o conhecimento direto: as decisões mais importantes chegam no silêncio, sem cálculo, e você age de um transbordo que dá sem se esgotar. É uma consciência que serve por superabundância. A jornada aqui atravessa a solidão do inexprimível rumo à unidade estável.'},
+ {name:'Não-dual Encarnado',alt:'Ultravioleta → Luz · 3ª camada',
+  framing:'Você repousa numa consciência de unidade que é base estável, não pico: a separação entre você e o mundo é uma forma familiar de se dissolver. Sua autoridade nasce do fundamento do ser. O chamado, aqui, é permanecer encarnado — criar o futuro do mundo a partir da unidade, sem se retirar dele.'}
+];
+
+// 14 itens (2 por estágio), embaralhados e sem rótulo
+let ITEMS=[
+ {s:0,t:'Meço meu sucesso por metas atingidas, resultados concretos e reconhecimento pelo que realizo.'},
+ {s:0,t:'Confio em dados, lógica e estratégia para resolver os grandes problemas do mundo.'},
+ {s:1,t:'Sinto-me chamado a dar voz a quem é deixado de fora e a cuidar dos mais vulneráveis e do planeta.'},
+ {s:1,t:'Desconfio de hierarquias e verdades únicas — todas as perspectivas merecem ser ouvidas.'},
+ {s:2,t:'Enxergo os padrões sistêmicos que conectam economia, ecologia e cultura num só tecido.'},
+ {s:2,t:'Transito entre lógica, intuição e corpo conforme o problema pede, sem me prender a um único método.'},
+ {s:3,t:'Percebo que minha presença, mais do que minhas palavras, reorganiza o campo de um grupo.'},
+ {s:3,t:'Sinto o planeta como um organismo vivo do qual sou parte inseparável.'},
+ {s:4,t:'"Eu Sou" é uma presença que sinto no corpo, anterior a qualquer papel ou história sobre mim.'},
+ {s:4,t:'Sinto minha vida como veículo de um impulso evolutivo maior que meus projetos pessoais.'},
+ {s:5,t:'As decisões mais importantes chegam a mim no silêncio, sem cálculo, como um saber direto.'},
+ {s:5,t:'Ajo de um transbordo interior — dou sem me esgotar, sirvo sem drenar.'},
+ {s:6,t:'A unidade com tudo o que existe é uma forma familiar de estar, não um momento raro.'},
+ {s:6,t:'Não estou aqui para minha própria libertação, mas para servir à criação do futuro do mundo.'}
+];
+// embaralha
+for(let i=ITEMS.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ITEMS[i],ITEMS[j]]=[ITEMS[j],ITEMS[i]];}
+
+const LK=['Nunca','Raramente','Às vezes','Frequentemente','Sempre'];
+const LOCKED=[
+ {t:'A sombra do seu estágio',d:'A armadilha estrutural que sabota exatamente quem está onde você está.'},
+ {t:'Suas falácias pré-trans',d:'Onde você tende a confundir estados de pico com estrutura permanente.'},
+ {t:'Seu psicógrafo completo · 7 linhas',d:'Cognitiva, self, valores, moral, interpessoal, somática e espiritual.'},
+ {t:'Seu perfil de liderança para o mundo',d:'Como você cria futuro — e o que trava a sua capacidade de fazê-lo.'},
+ {t:'Suas práticas da vida super-integral',d:'O protocolo personalizado para acelerar sua evolução, da 2ª à 3ª camada.'}
+];
+
+let S={screen:'intro',qi:0,ans:new Array(ITEMS.length).fill(null),primary:0};
+const app=()=>document.getElementById('app');
+function go(s){S.screen=s;render();window.scrollTo(0,0);}
+
+function score(){
+ const sum=new Array(7).fill(0);
+ ITEMS.forEach((it,i)=>sum[it.s]+=(S.ans[i]??0));
+ let best=-1,pri=0;
+ sum.forEach((v,i)=>{if(v>best){best=v;pri=i;}}); // empate → menor índice (não infla)
+ S.primary=pri;
+}
+
+function renderIntro(){
+ app().innerHTML=`
+ <div style="text-align:center">
+   <div class="eyebrow" style="margin-bottom:16px">Kosmos · Avaliação Gratuita</div>
+   <div class="orb" style="background:var(--grad);box-shadow:0 0 60px -10px var(--violet)"></div>
+   <h1 style="margin-top:10px">Indicador de<br><span class="grad-text serif">Centro de Gravidade</span></h1>
+   <p class="lead" style="max-width:440px;margin:18px auto 8px">Em qual estágio de desenvolvimento da consciência você opera hoje? Este indicador cruza as teorias com lastro científico do mapa integral para revelar o seu centro de gravidade — da primeira à terceira camada.</p>
+   <p class="note" style="max-width:420px;margin:12px auto 26px">14 afirmações · cerca de 5 minutos · resultado imediato</p>
+   <button class="btn" id="start" style="width:100%;max-width:320px">Descobrir meu centro de gravidade</button>
+   <p class="note" style="margin-top:14px">Responda com honestidade. Não há respostas certas — só o seu mapa real.</p>
+ </div>`;
+ document.getElementById('start').onclick=()=>{S.qi=0;go('quiz');};
+}
+
+function renderQuiz(){
+ const i=S.qi,it=ITEMS[i],a=S.ans[i];
+ app().innerHTML=`
+ <div style="display:flex;justify-content:space-between;align-items:center">
+   <div class="back" id="bk">← voltar</div>
+   <div class="note">${i+1} / ${ITEMS.length}</div>
+ </div>
+ <div class="prog"><i style="width:${i/ITEMS.length*100}%"></i></div>
+ <div class="eyebrow" style="margin-bottom:4px">Com que frequência isto é verdade para você?</div>
+ <div class="q-text">"${it.t}"</div>
+ <div class="likert">
+ ${LK.map((lb,v)=>`<button class="lk${a===v?' sel':''}" data-v="${v}"><span class="n">${v+1}</span>${lb}</button>`).join('')}
+ </div>`;
+ document.getElementById('bk').onclick=()=>{if(i>0){S.qi--;renderQuiz();}else go('intro');};
+ document.querySelectorAll('.lk').forEach(b=>b.onclick=()=>{
+   S.ans[i]=+b.dataset.v;
+   setTimeout(()=>{ if(i<ITEMS.length-1){S.qi++;renderQuiz();} else {score();go('result');} },180);
+ });
+}
+
+function renderResult(){
+ const st=STAGES[S.primary],col=C[S.primary];
+ const pos=(S.primary/6)*100;
+ app().innerHTML=`
+ <div style="text-align:center">
+   <div class="eyebrow" style="margin-bottom:14px">Seu centro de gravidade</div>
+   <div class="orb" style="background:radial-gradient(circle at 35% 30%, ${col}, ${col}55 70%, transparent);box-shadow:0 0 70px -8px ${col}"></div>
+   <h1 style="font-size:clamp(30px,6vw,46px);margin-top:6px">${st.name}</h1>
+   <div class="grad-text serif" style="font-size:19px;margin-top:2px">${st.alt}</div>
+ </div>
+ <div class="spectrum"><div class="spec-mk" style="left:${pos}%"></div></div>
+ <div class="spec-labels"><span>1ª camada</span><span>2ª camada</span><span>3ª camada</span></div>
+ <div class="card" style="margin-top:22px">
+   <p style="font-size:15px;color:var(--text);font-weight:300;line-height:1.7">${st.framing}</p>
+ </div>
+
+ <div class="sec-h"><div class="l"></div><div class="eyebrow">O que este indicador não revela</div><div class="l"></div></div>
+ <p class="note" style="text-align:center;margin-bottom:16px">Seu centro de gravidade é só o começo do mapa. O Assessment Completo abre as cinco camadas seguintes:</p>
+ ${LOCKED.map(l=>`<div class="lock">
+   <div class="ltitle">${l.t}<span class="licon">🔒</span></div>
+   <div class="ltease">${l.d}</div>
+ </div>`).join('')}
+
+ <div class="card glow" style="margin-top:22px;text-align:center">
+   <h1 class="serif" style="font-size:26px;margin-bottom:8px">Veja o mapa inteiro</h1>
+   <p class="lead" style="margin-bottom:18px">O Assessment Completo revela seu psicógrafo das sete linhas, seus estados, suas falácias pré-trans e as sombras a integrar — com o protocolo de práticas para acelerar sua evolução de onde você está para onde pode chegar.</p>
+   <a class="btn" style="width:100%;max-width:340px" href="${CTA_URL}">Fazer o Assessment Completo →</a>
+ </div>
+ <div style="text-align:center;margin-top:18px">
+   <span class="back" id="again">refazer o indicador</span>
+ </div>`;
+ document.getElementById('again').onclick=()=>{S.ans=new Array(ITEMS.length).fill(null);go('intro');};
+}
+
+function render(){
+ const el=app();el.classList.remove('fade');void el.offsetWidth;el.classList.add('fade');
+ if(S.screen==='intro')return renderIntro();
+ if(S.screen==='quiz')return renderQuiz();
+ if(S.screen==='result')return renderResult();
+}
+render();
+</script>
+</body>
+</html>
