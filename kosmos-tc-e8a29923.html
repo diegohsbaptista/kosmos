@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#020407">
+<title>Kosmos — Assessment Completo da Terceira Camada</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236272f0'/%3E%3Cstop offset='0.5' stop-color='%23a855f7'/%3E%3Cstop offset='1' stop-color='%23f0c060'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23020407'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='4' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020407;--s1:#080e1c;--s2:#0c1428;--s3:#101b34;
+  --border:rgba(120,140,200,0.08);--b2:rgba(120,140,200,0.15);--b3:rgba(120,140,200,0.28);
+  --text:#d8dff0;--muted:#4a5878;--muted2:#7888b0;
+  --indigo:#6272f0;--violet:#a855f7;--uv:#d946ef;--luz:#f0c060;
+  --grad:linear-gradient(135deg,#6272f0 0%,#a855f7 35%,#d946ef 65%,#f0c060 100%);
+  --grad2:linear-gradient(90deg,#6272f0,#a855f7,#d946ef,#f0c060);
+  --ok:#34d399;--warn:#fbbf24;--alert:#fb7185;
+  --ff-d:'Cormorant Garamond',Georgia,serif;--ff-b:'Outfit',system-ui,sans-serif;--ff-m:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-b);font-weight:300;min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 500px at 80% -10%,rgba(98,114,240,.10),transparent 60%),radial-gradient(700px 500px at 0% 110%,rgba(217,70,239,.07),transparent 60%);}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 90px}
+.fade{animation:fade .45s ease}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.serif{font-family:var(--ff-d)}.mono{font-family:var(--ff-m)}
+.eyebrow{font-family:var(--ff-m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2)}
+h1{font-family:var(--ff-d);font-weight:500;font-size:clamp(32px,6vw,56px);line-height:1.05;letter-spacing:-.01em}
+h2{font-family:var(--ff-d);font-weight:500;font-size:clamp(23px,4vw,33px);line-height:1.12}
+h3{font-family:var(--ff-d);font-weight:500;font-size:21px;line-height:1.22}
+h4{font-family:var(--ff-d);font-weight:500;font-size:17px;line-height:1.25}
+.lead{color:var(--muted2);font-size:15px;max-width:660px}
+p.body{font-size:14px;color:var(--muted2);margin-top:8px}
+.card{background:linear-gradient(180deg,rgba(16,27,52,.55),rgba(8,14,28,.55));border:1px solid var(--border);border-radius:18px;padding:22px;backdrop-filter:blur(8px)}
+.card.glow{border-color:var(--b2);box-shadow:0 30px 80px -40px rgba(98,114,240,.4)}
+.sub{background:rgba(8,14,28,.45);border:1px solid var(--border);border-radius:13px;padding:14px 16px}
+.divider{height:1px;background:var(--border);margin:18px 0}
+.btn{font-family:var(--ff-b);font-weight:500;font-size:14px;padding:15px 26px;border-radius:12px;border:none;cursor:pointer;color:#06080f;background:var(--grad2);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none;filter:none}
+.tag{display:inline-block;font-family:var(--ff-m);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:99px;border:1px solid var(--b2);color:var(--muted2)}
+.field{width:100%;background:rgba(8,14,28,.6);border:1px solid var(--b2);border-radius:12px;padding:14px 16px;color:var(--text);font-family:var(--ff-b);font-size:15px;font-weight:300;margin-bottom:12px}
+.field:focus{outline:none;border-color:var(--indigo)}
+.field::placeholder{color:var(--muted)}
+.ferr{color:#fb7185;font-size:12px;margin:-4px 0 10px;font-family:var(--ff-m);display:none}
+.prog{height:3px;background:rgba(120,140,200,.12);border-radius:2px;overflow:hidden;margin:16px 0 26px}
+.prog>i{display:block;height:100%;background:var(--grad2);transition:width .4s}
+.opt{width:100%;text-align:left;background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:13px;padding:14px 17px;color:var(--text);font-size:14px;cursor:pointer;margin-bottom:9px;transition:all .14s;display:flex;gap:13px;align-items:flex-start;font-weight:300}
+.opt:hover{border-color:var(--b3);background:rgba(120,140,200,.06)}
+.opt.sel{border-color:var(--indigo);background:rgba(98,114,240,.10)}
+.dot{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--muted);flex-shrink:0;margin-top:2px}
+.opt.sel .dot{border-color:var(--indigo);border-width:5px}
+.likert{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+.lk{flex:1;min-width:62px;text-align:center;background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:11px;padding:10px 5px;cursor:pointer;font-size:10.5px;color:var(--muted2);transition:all .14s;line-height:1.3}
+.lk:hover{border-color:var(--b3)}
+.lk.sel{border-color:var(--indigo);background:rgba(98,114,240,.12);color:var(--text)}
+.lk b{display:block;font-family:var(--ff-m);font-size:14px;color:var(--text);margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scale-row{margin-bottom:16px}
+.scale-top{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:5px}
+.scale-top .vl{font-family:var(--ff-m);font-size:11px;color:var(--muted2)}
+.scale-tr{height:7px;border-radius:4px;background:rgba(120,140,200,.10);overflow:hidden;position:relative}
+.scale-fl{height:100%;border-radius:4px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.scale-mk{position:absolute;top:-3px;width:1px;height:13px;background:rgba(216,223,240,.25)}
+.scale-txt{font-size:12.5px;color:var(--muted2);margin-top:6px;line-height:1.6}
+.badge{font-family:var(--ff-m);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px;font-weight:500}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px}
+.kv:last-child{border:none}.kv .k{color:var(--muted2)}
+.theo{display:inline-block;font-family:var(--ff-m);font-size:9.5px;padding:2px 8px;border-radius:99px;background:rgba(120,140,200,.07);color:var(--muted2);margin:2px 3px 2px 0}
+.matrix{display:grid;gap:4px;margin-top:8px}
+.mx-cell{border-radius:7px;padding:7px 4px;text-align:center;font-size:9px;border:1px solid var(--border);color:var(--muted);transition:all .2s}
+.mx-cell.you{border-color:var(--luz);color:var(--text);box-shadow:0 0 22px -6px var(--luz)}
+.mx-head{font-family:var(--ff-m);font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:3px}
+.flag{border-left:2px solid;padding:12px 15px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:13.5px;background:rgba(120,140,200,.04);line-height:1.65}
+.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:rgba(2,4,7,.72);border-bottom:1px solid var(--border);margin:-28px -18px 22px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between}
+.nav .lg{font-family:var(--ff-d);font-size:20px;letter-spacing:.02em}.nav .lg b{font-weight:600}
+.tabs{display:flex;gap:6px}
+.tab{font-family:var(--ff-m);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:99px;border:1px solid var(--border);color:var(--muted2);cursor:pointer}
+.tab.on{border-color:var(--b3);color:var(--text);background:rgba(120,140,200,.07)}
+.sec-h{display:flex;align-items:center;gap:11px;margin:30px 0 12px}
+.sec-h .n{font-family:var(--ff-m);font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:3px 8px;flex-shrink:0}
+.practice{background:rgba(8,14,28,.5);border:1px solid var(--border);border-radius:13px;padding:14px 16px;margin-bottom:9px;cursor:pointer;transition:all .14s;display:flex;gap:13px;align-items:flex-start}
+.practice:hover{border-color:var(--b3)}
+.practice.sel{border-color:var(--indigo);background:rgba(98,114,240,.08)}
+.chk{width:21px;height:21px;border-radius:7px;border:1.5px solid var(--muted);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.practice.sel .chk{background:var(--indigo);border-color:var(--indigo);color:#06080f}
+.mod-lbl{font-family:var(--ff-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin:20px 0 4px}
+.week-grid{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.wk{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:9px;color:var(--muted2)}
+.wk.done{color:#06080f;border-color:transparent}
+.streak{font-family:var(--ff-m);font-size:11px;color:var(--luz)}
+.snap-btn{font-family:var(--ff-m);font-size:11px;color:var(--indigo);cursor:pointer;border:1px dashed var(--b2);border-radius:9px;padding:8px 12px;background:transparent}
+.note{font-size:11.5px;color:var(--muted);font-family:var(--ff-m);line-height:1.7}
+.viz2{display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap}
+@media print{.no-print{display:none!important}body{background:#020407!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card{break-inside:avoid}@page{margin:10mm}}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}.tabs{display:none}.viz2{flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="app" class="wrap fade"></div>
+<footer style="max-width:1080px;margin:0 auto;padding:0 18px 42px;text-align:center;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#39435f;line-height:1.7">ACESSO PESSOAL E INTRANSFERÍVEL · VINCULADO À SUA COMPRA<br><span style="color:#2c3450">Kosmos · Assessment da Terceira Camada</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+const MAKE_WEBHOOK_URL="https://hook.us2.make.com/di8nys4yzx72wt7waoepja5ff34gesev";
+const C=['#fb923c','#4ade80','#2dd4bf','#22d3ee','#6272f0','#a855f7','#d946ef'];
+
+/* ════════ EIXO 1 · ESTÁGIOS ════════ */
+const STAGES=[
+{name:'Realizador–Racional',alt:'Laranja',camada:'1ª camada',pessoa:'3ª pessoa · mundicêntrica',
+ teoricos:['Graves: Laranja','Cook-Greuter: Consciencioso','Loevinger: E4','Kohlberg: pós-convencional inicial'],
+ lead:'Você cria futuro pela força da realização: lógica, mérito, inovação e resultados concretos que movem o mundo adiante. Enxerga o mundo como um sistema a ser otimizado — e tem a capacidade rara de transformar visão em execução.',
+ cognicao:'Pensamento lógico-formal e hipotético-dedutivo. Você testa, mede e ajusta. A verdade é aquilo que funciona e se comprova.',
+ emocao:'A emoção tende a ser tratada como variável a administrar, não como fonte de informação. Isso dá foco — e custa profundidade relacional.',
+ acao:'Lógica de ação orientada a metas e eficácia. Decide por custo, retorno e viabilidade, com horizonte de tempo linear.',
+ etica:'Princípios universais racionais: justiça, mérito, contrato. A pergunta orientadora é "isto é correto e eficaz?".',
+ trabalho:'Trabalha para realizar potencial e conquistar posição de impacto. Sucesso é medido por resultado visível.',
+ luz:'Autonomia de pensamento, capacidade de manifestação, disciplina estratégica e coragem de empreender no mundo real.',
+ sombra:'Reduzir valor a desempenho e tratar pessoas e planeta como recursos. Vazio existencial após atingir as metas — o "consegui tudo, e agora?".',
+ pretrans:'Confundir competência técnica e sucesso material com maturidade de consciência. Realizar mais não é evoluir verticalmente: é ganho horizontal.',
+ proximo:'O próximo salto é descentrar-se do próprio desempenho e deixar que a diversidade de perspectivas e o sofrimento do mundo o afetem de verdade.',
+ futuros:'inovação de impacto, empreendedorismo de propósito e ciência aplicada ao bem comum.'},
+
+{name:'Pluralista–Sensível',alt:'Verde',camada:'1ª camada',pessoa:'4ª pessoa · relacional-contextual',
+ teoricos:['Graves: Verde','Cook-Greuter: Individualista (E5)','Loevinger: Individualista','Wade: Afiliativa'],
+ lead:'Você cria futuro ampliando quem participa: dá voz a quem foi deixado de fora, cuida do planeta e dos vulneráveis do mundo, e constrói consenso onde havia imposição.',
+ cognicao:'Pensamento contextual e relativista. Você percebe que toda verdade é situada — o que abre empatia, mas dificulta hierarquizar valores.',
+ emocao:'Alta sensibilidade afetiva. A emoção do coletivo é percebida diretamente; o risco é absorvê-la sem discernimento nem proteção.',
+ acao:'Decide por consenso, escuta e cuidado com o processo. Resiste a estruturas de autoridade mesmo quando elas serviriam ao coletivo.',
+ etica:'Ética do cuidado e da inclusão radical. A pergunta é "quem está sendo excluído por esta decisão?".',
+ trabalho:'Busca coerência entre valores e trabalho. Prefere estruturas horizontais e propósito explícito.',
+ luz:'Empatia genuína, consciência ecológica, capacidade de sustentar a multiplicidade e de reparar injustiças históricas.',
+ sombra:'Paralisia relativista: dificuldade de decidir, de hierarquizar valores e de exercer autoridade quando o mundo precisa de direção. Julgamento moral disfarçado de abertura.',
+ pretrans:'Confundir a ausência de hierarquia (pré-convencional) com a inclusão de hierarquias (pós-convencional). O igualitarismo radical pode mascarar a recusa em se desenvolver e em liderar.',
+ proximo:'O próximo salto é reconhecer que existem hierarquias de crescimento — não de dominação — e recuperar a capacidade de decidir e liderar sem perder a sensibilidade.',
+ futuros:'movimentos de justiça, diálogo social, economias colaborativas e ativismo ecológico.'},
+
+{name:'Estratégico–Integral',alt:'Teal / Amarelo',camada:'2ª camada',pessoa:'5ª pessoa · sistêmica',
+ teoricos:['Torbert: Estrategista','Cook-Greuter: Autônomo (E7)','Graves: Amarelo','Wilber: Integral'],
+ lead:'Você cria futuro desenhando arquiteturas civilizacionais: integra perspectivas contraditórias e equilibra polaridades em escala societal e planetária. Não escolhe lados — projeta o sistema que os contém.',
+ cognicao:'Visão-lógica: pensa em fluxos, padrões e sistemas dinâmicos. Reconhece que cada estágio anterior carrega uma verdade parcial necessária ao todo.',
+ emocao:'Equanimidade crescente. Sustenta tensão sem colapsar — mas pode intelectualizar a emoção em vez de habitá-la.',
+ acao:'Lógica do Estrategista: age a partir de princípios próprios examinados, com horizonte de décadas, aceitando o paradoxo como dado e não como problema.',
+ etica:'Ética sistêmica de longo prazo. A pergunta é "que intervenção serve à evolução do sistema inteiro, e não só à parte que me cabe?".',
+ trabalho:'Constrói organizações como organismos vivos e trata cada projeto como laboratório de consciência coletiva.',
+ luz:'Pensamento sistêmico, navegação de paradoxos, capacidade de traduzir entre visões de mundo, liderança que integra sem achatar diferenças.',
+ sombra:'Mapa sem território: modelos cada vez mais sofisticados que não viram ação no mundo. O estrategista isolado, cuja profundidade poucos acompanham — e a solidão que vem disso.',
+ pretrans:'Sofisticação cognitiva (ganho horizontal) simulando estágio (ganho vertical). Falar fluentemente o mapa integral não é encarná-lo — é a armadilha mais comum desta altitude.',
+ proximo:'O próximo salto não é pensar melhor: é encarnar o que já se compreende. Descer o conhecimento para o corpo, a sombra e a relação.',
+ futuros:'organizações regenerativas, políticas públicas integrais e ecossistemas de inovação social.'},
+
+{name:'Holístico–Alquímico',alt:'Turquesa',camada:'2ª camada',pessoa:'6ª pessoa · holística-planetária',
+ teoricos:['Torbert: Alquimista','Graves: Turquesa','Cook-Greuter: início Construct-aware','Wilber: Holístico'],
+ lead:'Você cria futuro por ressonância de campo: sua presença reorganiza sistemas antes mesmo da fala. Trata o planeta como um organismo vivo do qual é parte, e trabalha com o todo, não só com as partes.',
+ cognicao:'Percepção holística e não-linear. Paradoxos são integrados sem tensão; padrões de totalidade aparecem antes da análise.',
+ emocao:'Equanimidade ativa: profundamente comovido pelo sofrimento do mundo sem ser consumido por ele — dói mais, incomoda menos.',
+ acao:'Lógica do Alquimista: transforma sistemas ao se transformar. Cada ação é simultaneamente reflexão e intervenção.',
+ etica:'A bússola já não é apenas o princípio, mas a necessidade evolutiva: "isto serve à evolução consciente no horizonte de gerações?".',
+ trabalho:'O campo de coerência do grupo é um indicador tão real quanto as métricas financeiras. Opera em horizontes longos agindo no presente.',
+ luz:'Permeabilidade com o todo, compaixão que não se consome, capacidade de sustentar campos coletivos de alta complexidade.',
+ sombra:'Bypass espiritual: usar a perspectiva holística para evitar conflito direto, responsabilidade prática e encarnação. Superioridade espiritual disfarçada de serenidade.',
+ pretrans:'Transcender sem incluir a sombra é regressão disfarçada de elevação. É aqui que a falácia pré-trans se torna mais sedutora — porque a experiência é real.',
+ proximo:'O próximo salto é sutil e profundo: incluir a sombra em vez de transcendê-la, e permitir que a identidade se desloque do pensamento para a presença sentida.',
+ futuros:'design bioregional, governança regenerativa e redes globais de regeneração de campo.'},
+
+{name:'Mente Iluminada',alt:'Índigo',camada:'3ª camada',pessoa:'7ª pessoa · kosmocêntrica',
+ teoricos:['Cook-Greuter: Construct-aware (E8)','Torbert: Ironista','Aurobindo: Mente Iluminada','Wilber: Mente Global'],
+ lead:'Você cria futuro como veículo de um impulso evolutivo encarnado agora — não por agenda pessoal, mas a serviço do mundo que quer nascer. A autoridade vem da presença, não do cargo.',
+ cognicao:'Percebe, em tempo real, a própria mente construindo a realidade. Todos os mapas — inclusive o integral — são vistos como instrumentos, não verdades.',
+ emocao:'Amor, gratidão e paz como estados sustentados e não reativos. A emoção é lida como informação de campo, não apenas experiência pessoal.',
+ acao:'Lógica do Ironista: habita a contradição criativa sem precisar resolvê-la. Age com comprometimento total e leveza simultânea.',
+ etica:'Consciência kosmocêntrica como bússola: a responsabilidade pela direção da evolução é sentida como pessoal e inescapável.',
+ trabalho:'Cada projeto carrega dupla entrega: uma jornada interior e uma capacidade sistêmica destravada no mundo.',
+ luz:'A Testemunha como identidade estável, não como experiência. Presença que reorganiza campos. Lucidez sobre a construção da realidade, sem cinismo.',
+ sombra:'Dificuldade de traduzir altitude em linguagem comum. Estranheza crescente com o mundo convencional, como se operasse em outro registro de realidade.',
+ pretrans:'A lucidez sem encarnação vira niilismo ("nada é real, então nada importa") ou inflação ("eu transcendi tudo"). São a mesma armadilha vista de ângulos opostos.',
+ proximo:'O próximo salto é estabilizar o estado causal e traduzir a percepção em linguagem, decisão e estrutura que o mundo consiga receber.',
+ futuros:'governança kosmocêntrica, laboratórios de futuros emergentes e assembleias planetárias de visão.'},
+
+{name:'Mente Intuitiva',alt:'Violeta',camada:'3ª camada',pessoa:'8ª pessoa · kosmocêntrica',
+ teoricos:['Cook-Greuter: Unitivo (E9)','Aurobindo: Mente Intuitiva','Torbert: além do Ironista','Wilber: Meta-Mente'],
+ lead:'Você cria futuro por superabundância: as decisões emergem do silêncio sem cálculo, e a ação para o mundo nasce do transbordo, não da falta. O esforço deixa de drenar e passa a expressar.',
+ cognicao:'Conhecimento como reconhecimento, não como aprendizado. Visão reveladora rápida, sem intermediação discursiva.',
+ emocao:'Plenitude estável. A compaixão é vasta e impessoal — o que traz alívio e, ao mesmo tempo, uma solidão específica desta altitude.',
+ acao:'A ação emerge do vazio, não da necessidade de provar. Agência sem ego de agente.',
+ etica:'A responsabilidade já não é sentida como fardo, mas como privilégio estrutural: servir à evolução é a única coisa que faz sentido.',
+ trabalho:'Estrutura e recursos fluem como consequência da coerência, não como objetivo. O trabalho é vocação no sentido literal.',
+ luz:'Insight sem esforço cognitivo; ação que dá sem esgotar e serve sem drenar. Eros vivo a serviço da evolução.',
+ sombra:'Solidão existencial profunda que nenhuma companhia resolve. O essencial torna-se inexprimível — e os limites da linguagem passam a doer.',
+ pretrans:'Estado unitivo de pico confundido com estrutura unitiva permanente. A distinção estado↔traço é o antídoto: um vislumbre não é uma altitude.',
+ proximo:'O próximo salto é estabilizar a unidade como base (traço) e não como pico — e permanecer encarnado enquanto isso acontece.',
+ futuros:'redes de coerência planetária, infraestruturas de consciência coletiva e sabedoria intergeracional.'},
+
+{name:'Não-dual Encarnado',alt:'Ultravioleta → Luz Clara',camada:'3ª camada',pessoa:'9ª–10ª pessoa · integral transpessoal',
+ teoricos:['Aurobindo: Sobremente / Supermente','Cook-Greuter: unitivo estabilizado','Maslow: autotranscendência','Wilber: Supermente'],
+ lead:'Você cria futuro como responsabilidade absoluta pela evolução do mundo. "Não estou aqui para minha libertação, mas para criar o futuro." A unidade encarna na matéria, e não foge dela.',
+ cognicao:'Consciência-verdade: percebe a unidade mantendo a multiplicidade. Não há separação funcional entre conhecer e ser.',
+ emocao:'Equanimidade que não é distância. O sofrimento do mundo é plenamente recebido e plenamente sustentado.',
+ acao:'Cria não por esforço, mas por emanação natural. Ação e repouso deixam de ser opostos.',
+ etica:'Identificação com o Kosmos como bússola. A ação ou inação individual é percebida como cocriação direta do campo em que todos vivem.',
+ trabalho:'Cada estrutura criada é instrumento físico de um futuro kosmocêntrico. Horizontes de gerações operando no gesto imediato.',
+ luz:'A unidade como base estável, não como pico. Autoridade que nasce do fundamento do ser, não do cargo, do mérito ou do carisma.',
+ sombra:'Dificuldade de permanecer encarnado. A ausência de agenda pessoal pode se traduzir em ausência de direção mobilizadora no mundo.',
+ pretrans:'A falácia final: confundir dissolução (pré-pessoal, regressiva) com unidade (transpessoal, integrativa). O ápice não é fuga da matéria — é unidade que se encarna nela.',
+ proximo:'Aqui o crescimento vertical encontra seu limite conhecido. O trabalho passa a ser horizontal: encarnar, traduzir, construir e servir sem se retirar do mundo.',
+ futuros:'cocriação de futuros kosmocêntricos encarnados, coordenação planetária e economias de dons.'}
+];
+
+/* ════════ EIXO 3 · LINHAS ════════ */
+const LINES=[
+{id:'cog',name:'Cognitiva',teo:'Piaget · visão-lógica · Aurobindo',
+ sobre:'A capacidade de sustentar complexidade: quantas perspectivas você segura ao mesmo tempo sem colapsá-las numa só. Costuma liderar em pessoas de alta escolaridade — e é a que mais engana quando cresce sozinha.',
+ items:['Considero múltiplas perspectivas e contextos antes de concluir, sem buscar uma única verdade.',
+        'Reconheço padrões sistêmicos que conectam fenômenos sociais, ecológicos e econômicos num campo só.',
+        'O conhecimento mais decisivo me chega como reconhecimento direto, antes de qualquer raciocínio discursivo.'],
+ b:'Sua cognição opera bem no registro linear e analítico, mas a complexidade sistêmica ainda é vivida como sobrecarga. Desenvolver aqui destrava o resto — a cognição é necessária, embora nunca suficiente, para os outros saltos.',
+ m:'Você já pensa em sistemas e sustenta perspectivas contraditórias sem precisar resolvê-las. É a assinatura da segunda camada. O risco desta faixa é a sofisticação virar substituto da ação.',
+ a:'Sua cognição opera em registro pós-paradigmático: percebe a própria construção dos mapas. Cuidado com a armadilha específica desta altitude — saber sobre não é ser.',
+ crescer:'cartografia dos quatro territórios, yoga de perspectivas e a disciplina de traduzir cada insight complexo em uma frase que uma criança entenderia.'},
+
+{id:'self',name:'Self / Ego-identidade',teo:'Loevinger · Cook-Greuter',
+ sobre:'De onde vem o seu senso de "eu". É a linha-espinha do desenvolvimento vertical — a que os instrumentos clássicos medem — porque a identidade define o que todas as outras linhas conseguem sustentar.',
+ items:['Reconheço que minha identidade é moldada pela cultura e pelo contexto em que vivo.',
+        'Decido a partir de princípios próprios que examinei, mesmo contra a expectativa do grupo.',
+        '"Eu Sou" é uma presença sentida no corpo, anterior a qualquer papel, conquista ou história sobre mim.'],
+ b:'Sua identidade ainda se apoia bastante em papéis, conquistas e reconhecimento externo. Não é falha: é o estágio de consolidação do self autoral, que precisa ser sólido antes de ser transcendido.',
+ m:'Você já é autor da própria identidade: decide por princípios examinados e tolera não ser compreendido. O passo seguinte é perceber que também esse "autor" é uma construção.',
+ a:'Sua identidade já se desloca do pensamento para a presença. O "eu" opera como instrumento a serviço do todo, não como centro — a marca do território pós-autônomo.',
+ crescer:'presença do Vidente (Eu Sou), inquérito pós-ação e integração de sombra — a identidade só se expande na medida em que o que foi exilado é reintegrado.'},
+
+{id:'val',name:'Valores',teo:'Graves · Spiral Dynamics',
+ sobre:'O que você considera importante e o que o move a agir. Esta linha determina para quem você lidera: para si, para o seu grupo, para a humanidade ou para o Kosmos.',
+ items:['Valorizo igualdade, pertencimento e o cuidado com o coletivo acima da competição.',
+        'Integro perspectivas contraditórias sem precisar que uma esteja totalmente certa.',
+        'Ajo a serviço do impulso evolutivo do todo, acima de ganho pessoal ou validação cultural.'],
+ b:'Seus valores organizam-se em torno de realização, mérito e pertencimento — o centro de gravidade da maior parte do mundo produtivo. O crescimento aqui é ampliar o círculo de quem importa.',
+ m:'Seus valores já são mundicêntricos e integrativos: você reconhece a validade parcial de visões de mundo que competem entre si. Isso o torna uma ponte rara.',
+ a:'Seus valores são kosmocêntricos: o critério de decisão é a necessidade evolutiva do todo, não o ganho pessoal nem a validação cultural.',
+ crescer:'dupla saída, ação como serviço e a prática de nomear explicitamente a quem cada decisão serve.'},
+
+{id:'mor',name:'Moral',teo:'Kohlberg · Gilligan',
+ sobre:'O raio do seu círculo ético — quem entra na sua consideração moral. Esse raio se expande em estágios previsíveis: de mim, para o meu grupo, para a humanidade, para todos os seres.',
+ items:['Minha ética se guia por justiça, direitos e bem-estar de todas as pessoas.',
+        'Considero os direitos de quem não está na sala — gerações futuras, seres não-humanos, o planeta.',
+        'Sinto uma responsabilidade que excede o ético-convencional: uma necessidade sentida de servir à evolução.'],
+ b:'Sua ética opera com solidez no registro convencional e racional: regras, contratos, justiça. É a base indispensável — e ainda tem um círculo a ampliar.',
+ m:'Você já é pós-convencional: considera quem não está na sala, incluindo gerações futuras e o mundo não-humano. Isso é raro e tem custo social.',
+ a:'Sua bússola já não pergunta apenas "isto é justo?", mas "isto serve à evolução consciente no horizonte de gerações?". A responsabilidade é sentida, não deduzida.',
+ crescer:'inquérito pós-ação com foco no impacto de longo prazo e a prática de decidir considerando explicitamente os ausentes.'},
+
+{id:'rel',name:'Interpessoal / Afetiva',teo:'desenvolvimento relacional',
+ sobre:'Sua capacidade de estar com o outro sem se perder nem se defender. É a linha que mais frequentemente fica atrás em pessoas cognitivamente avançadas — e a que mais limita a liderança no mundo real.',
+ items:['Escuto com empatia e busco compreender o sentimento por trás do que o outro diz.',
+        'Consigo reconstruir o argumento de quem discordo na forma mais forte antes de responder.',
+        'Minha mera presença tende a acalmar e reorganizar o campo emocional de um grupo.'],
+ b:'A relação ainda é vivida sobretudo como troca ou negociação. Desenvolver esta linha costuma produzir o maior salto prático de eficácia no mundo.',
+ m:'Você escuta de verdade e sustenta o desacordo sem se defender. Já consegue ser ponte entre pessoas que não se entendem.',
+ a:'Sua presença regula campos coletivos: grupos se reorganizam ao seu redor sem que você precise argumentar. É liderança por ressonância.',
+ crescer:'reconstrução do argumento mais forte, presença no conflito e escuta sem preparar resposta.'},
+
+{id:'som',name:'Somática / Corporal',teo:'encarnação · regulação',
+ sobre:'O quanto você habita o corpo. Altitude sem encarnação é instável: sem base somática, estados elevados oscilam e a pessoa se desencarna sob pressão. É a linha que sustenta todas as outras.',
+ items:['Percebo e respeito os sinais do meu corpo — cansaço, tensão, energia.',
+        'Percebo o que o corpo já sabe antes de a mente concluir a análise — e confio nisso.',
+        'Habito plenamente o corpo enquanto acesso estados expandidos — não me desencarno para "subir".'],
+ b:'O corpo é tratado sobretudo como veículo funcional. Enquanto esta linha ficar atrás, cada ganho de altitude tenderá a oscilar sob pressão.',
+ m:'Você já escuta o corpo como fonte de informação e regula seu estado antes de decidir. Base sólida para sustentar mais complexidade.',
+ a:'Você mantém presença encarnada mesmo em estados expandidos — a marca da terceira camada, que não flutua, mas enraíza mais fundo.',
+ crescer:'varredura corporal, respiração de coerência e ancoragem em três densidades, praticadas antes das decisões de maior risco.'},
+
+{id:'esp',name:'Espiritual',teo:'linha de realização · Waking Up',
+ sobre:'Sua familiaridade com estados de consciência além do pensamento. Atenção à distinção-chave: esta linha mede quanto você acessa (Waking Up), não a altitude estrutural que interpreta o que você acessa (Growing Up).',
+ items:['Cultivo momentos de silêncio, presença ou gratidão na minha rotina.',
+        'Acesso estados de silêncio onde a separação entre mim e o mundo afrouxa.',
+        'A unidade — ser inseparável de tudo — é uma forma familiar e acessível de estar, não um evento raro.'],
+ b:'A dimensão contemplativa ainda é ocasional. Uma prática simples, sustentada por meses, costuma abrir mais do que qualquer leitura sobre o tema.',
+ m:'Você acessa estados de silêncio e permeabilidade com regularidade. O trabalho agora é estabilizar: transformar pico em platô.',
+ a:'Seu acesso a estados profundos é familiar e disponível. Aqui o cuidado central é não confundir estado com estágio — e o antídoto é a sombra, não mais meditação.',
+ crescer:'calma e visão clara, Grande Silêncio e indagação não-dual — sempre acompanhados de prática de sombra, para que o acesso não vire inflação.'}
+];
+
+/* ════════ EIXO 2 · ESTADOS ════════ */
+const STATES=[
+{id:'denso',name:'Denso / Vigília',desc:'Presença plena no corpo e no mundo material.',
+ sobre:'O estado-base da vida cotidiana. Paradoxalmente, é o mais negligenciado por quem busca altitude — e o que sustenta todos os outros.',
+ items:['Sinto-me plenamente presente e encarnado no aqui-agora.','Essa presença encarnada é meu estado-base estável, não exceção.']},
+{id:'sutil',name:'Sutil',desc:'Energia, intuição, visão interior, sonho lúcido.',
+ sobre:'O território da intuição e do fluxo energético. É o estado objetivado pela altitude Índigo — quando deixa de ser experiência e vira estrutura.',
+ items:['Acesso estados de intuição vívida, fluxo energético ou percepção sutil.','Esse acesso é confiável e disponível quando preciso, não apenas espontâneo e raro.']},
+{id:'causal',name:'Causal',desc:'Vastidão sem forma; o silêncio entre os pensamentos.',
+ sobre:'O vazio fecundo de onde emergem as decisões de sabedoria. É o estado objetivado pela altitude Violeta.',
+ items:['Acesso o silêncio profundo e sem forma na contemplação.','Repouso nesse vazio com naturalidade, não apenas em picos ocasionais.']},
+{id:'test',name:'Testemunha',desc:'A consciência que observa, constante em vigília, sonho e sono.',
+ sobre:'A identidade deixa de ser conteúdo e passa a ser o espaço que contém o conteúdo. É o eixo do "Eu Sou" sentido.',
+ items:['Experimento ser a Testemunha que observa pensamentos e emoções sem se identificar.','A Testemunha persiste como pano de fundo mesmo na ação cotidiana intensa.']},
+{id:'nd',name:'Não-Dual',desc:'Colapso sujeito-objeto; o mundo surge dentro da consciência.',
+ sobre:'A distância entre você e o mundo é zero. É o estado objetivado pela altitude Ultravioleta — e o mais frequentemente confundido com regressão pré-pessoal.',
+ items:['Vivo momentos em que a fronteira entre mim e tudo desaparece.','A não-dualidade é uma forma familiar de estar, não um evento extraordinário isolado.']}
+];
+
+/* ════════ ITENS DE ESTÁGIO ════════ */
+const STAGE_Q=[
+{type:'Cenário de liderança',q:'Diante de uma grande crise civilizacional (climática, social, tecnológica) sem solução clara, seu primeiro movimento mais genuíno é:',
+ opts:[{t:'Buscar a solução mais eficaz e comprovada, e executá-la com excelência e rapidez.',s:0},
+       {t:'Garantir que os mais vulneráveis e todas as vozes sejam ouvidos antes de qualquer decisão.',s:1},
+       {t:'Mapear as forças sistêmicas em jogo e desenhar uma intervenção que equilibre o todo.',s:2},
+       {t:'Acalmar meu próprio campo de presença e deixar a clareza reorganizar o coletivo antes do plano.',s:3},
+       {t:'Sentir o futuro que quer emergir através desta crise e tornar-me o veículo dele.',s:4}]},
+{type:'Cenário de liderança',q:'Quando olho para trás, minhas decisões mais importantes para o mundo nasceram de:',
+ opts:[{t:'Cuidado com as pessoas e o desejo de incluir quem é deixado de fora.',s:1},
+       {t:'Um princípio próprio e uma leitura sistêmica de longo prazo.',s:2},
+       {t:'Uma percepção do campo: o que o coletivo precisava para se reorganizar.',s:3},
+       {t:'Um impulso evolutivo sentido como direção, maior que minha agenda pessoal.',s:4},
+       {t:'Uma certeza revelada no silêncio, sem cálculo — que transbordou em ação.',s:5}]},
+{type:'Completar a perspectiva',q:'"Quando sou duramente criticado em público pelo meu trabalho, o que acontece em mim é…"',
+ opts:[{t:'…foco em corrigir e provar meu valor pelos resultados.',s:0},
+       {t:'…preocupação em restaurar a harmonia e o vínculo.',s:1},
+       {t:'…separo a informação útil do ruído, sem levar para o pessoal.',s:2},
+       {t:'…observo a reatividade surgir e passar, sem que ela me capture como identidade.',s:4},
+       {t:'…há espaço silencioso onde a crítica surge e se dissolve, sem um centro a defender.',s:5}]},
+{type:'Completar a perspectiva',q:'"O propósito mais profundo do meu trabalho no mundo é…"',
+ opts:[{t:'…alcançar excelência, reconhecimento e impacto mensurável.',s:0},
+       {t:'…dar voz a quem não tem e cuidar das pessoas e do planeta.',s:1},
+       {t:'…construir sistemas e instituições que funcionem melhor para a sociedade inteira.',s:2},
+       {t:'…elevar a coerência e a consciência dos campos coletivos por onde passo.',s:3},
+       {t:'…servir à evolução do todo — eu sou o Kosmos despertando para criar o futuro.',s:5}]},
+{type:'Cenário de liderança',q:'Quando o caos e a incerteza aumentam num projeto de grande escala, eu:',
+ opts:[{t:'Acelero a execução e busco restabelecer controle e previsibilidade.',s:0},
+       {t:'Abro espaço de escuta para que o coletivo processe junto o que está acontecendo.',s:1},
+       {t:'Reformulo o desenho do sistema para absorver a nova complexidade.',s:2},
+       {t:'Permaneço presente na tensão sem forçar resolução, deixando a forma emergir.',s:4},
+       {t:'Reconheço o caos como o próprio movimento evolutivo e ajo a partir dele, sem resistência.',s:5}]}
+];
+
+/* ════════ PRÁTICAS DA VIDA SUPER-INTEGRAL ════════ */
+const MODS=[
+{id:'corpo',name:'Corpo · Encarnação',c:'#4ade80'},
+{id:'mente',name:'Mente · Maturação',c:'#38bdf8'},
+{id:'espirito',name:'Espírito · Despertar',c:'#a855f7'},
+{id:'sombra',name:'Sombra · Integração',c:'#fb7185'},
+{id:'relacional',name:'Relacional · Campo',c:'#2dd4bf'},
+{id:'cocriacao',name:'Cocriação · Futuros',c:'#f0c060'}
+];
+const NIV={1:'básica',2:'intermediária',3:'avançada'};
+const PRACTICES=[
+{id:'c1',mod:'corpo',n:1,tag:'som',title:'Varredura corporal',dur:'10 min · diário',desc:'Atenção percorrendo o corpo da cabeça aos pés, sem corrigir nada — apenas registrar o que está aí.',como:'Deite ou sente. Leve a atenção a cada região por cerca de 20 segundos. Ao encontrar tensão, não a desfaça: permaneça com ela até que ela se mostre.',fut:'Restabelece o corpo como fonte de informação, não como veículo funcional.'},
+{id:'c2',mod:'corpo',n:1,tag:'som',title:'Respiração de coerência',dur:'5 min · antes de decidir',desc:'Respiração pausada e ritmada para regular o sistema nervoso antes de decisões de alto risco.',como:'Inspire contando até cinco, expire contando até cinco, por cinco minutos, sem forçar. Só então tome a decisão.',fut:'Liderança que decide de um estado regulado, e não da reatividade.'},
+{id:'c3',mod:'corpo',n:2,tag:'som',title:'Ancoragem em três densidades',dur:'15 min · diário',desc:'Atenção que percorre o corpo denso (sensação), o sutil (respiração e vitalidade) e a vastidão que contém ambos.',como:'Cinco minutos em cada camada, nesta ordem: peso e contato do corpo; movimento de energia e respiração; o espaço silencioso onde tudo isso acontece.',fut:'Sustenta altitudes mais altas sem desencarnar — a base da terceira camada.'},
+{id:'c4',mod:'corpo',n:2,tag:'denso',title:'Escuta da Terra',dur:'1 h · semanal',desc:'Tempo na natureza sem agenda, percebendo a interioridade do lugar e do ecossistema local.',como:'Vá sozinho, sem telefone e sem objetivo. Fique num mesmo lugar por ao menos 30 minutos. Escute o lugar como quem escuta alguém falar.',fut:'Base experiencial para design bioregional e projetos enraizados no território.'},
+{id:'c5',mod:'corpo',n:3,tag:'som',title:'Encarnação em estado expandido',dur:'20 min · semanal',desc:'Manter presença corporal explícita enquanto se acessa estados profundos — o antídoto à desencarnação.',como:'Durante a contemplação, mantenha parte da atenção nos pés e no peso do corpo. Se perder o corpo, retorne. A profundidade não deve custar a presença.',fut:'Realização que permanece útil ao mundo em vez de se retirar dele.'},
+{id:'c6',mod:'corpo',n:3,tag:'som',title:'Decisão somática sob pressão',dur:'contínua',desc:'Usar o corpo como bússola justamente quando a pressão é máxima e o impulso é acelerar.',como:'Antes de responder sob pressão, faça três respirações completas e pergunte ao corpo: contrai ou abre? Só então formule a resposta.',fut:'Decisões de alto impacto tomadas de coerência, não de urgência.'},
+{id:'m1',mod:'mente',n:1,tag:'cog',title:'Pausa antes da conclusão',dur:'contínua',desc:'Interromper deliberadamente o reflexo de concluir antes de ter considerado outra perspectiva.',como:'Ao perceber que já formou opinião, pare e formule a melhor versão da posição contrária antes de seguir.',fut:'Reduz polarização nos campos por onde você circula.'},
+{id:'m2',mod:'mente',n:1,tag:'self',title:'Diário de perspectivas',dur:'10 min · diário',desc:'Escrever sobre um evento do dia a partir de três posições: como eu vivi, como o outro viveu, como um observador neutro descreveria.',como:'Três parágrafos curtos, um por posição. Não resolva a contradição entre eles — deixe-a visível.',fut:'Treina a capacidade de sustentar múltiplas perspectivas simultâneas.'},
+{id:'m3',mod:'mente',n:2,tag:'cog',title:'Cartografia dos quatro territórios',dur:'30 min · semanal',desc:'Mapear um desafio real por quatro faces: meu interior, meu comportamento, a cultura do coletivo, os sistemas e estruturas.',como:'Divida uma página em quatro. Preencha as quatro antes de decidir. A face mais vazia costuma ser onde está o problema.',fut:'Intervenções que não marginalizam nenhuma dimensão da realidade.'},
+{id:'m4',mod:'mente',n:2,tag:'self',title:'Inquérito pós-ação',dur:'10 min · semanal',desc:'Após uma ação importante: ela nasceu de regra, de papel ou de princípio? Transformou o sistema ou apenas reagiu a ele?',como:'Escolha a decisão mais relevante da semana e responda às duas perguntas por escrito, sem se justificar.',fut:'Amadurece a lógica de ação — o motor do desenvolvimento vertical.'},
+{id:'m5',mod:'mente',n:3,tag:'cog',title:'Checagem de familiaridade',dur:'reflexão · semanal',desc:'Auditoria honesta: estou vivendo isto, ou apenas falando o mapa? Onde meu vocabulário excede minha experiência?',como:'Liste três conceitos que você usa com frequência. Para cada um, descreva a última vez em que ele foi vivido no corpo, não pensado.',fut:'Antídoto ao conhecimento por descrição — a armadilha central do líder integral.'},
+{id:'m6',mod:'mente',n:3,tag:'self',title:'Rastreio do impulso evolutivo',dur:'15 min · semanal',desc:'"O que quer emergir através de mim neste momento da evolução?" — foco no impulso, não no propósito pessoal.',como:'Sente em silêncio por dez minutos antes de perguntar. Escreva a resposta sem editar. Compare as respostas ao longo dos meses.',fut:'Clareza de missão kosmocêntrica que resiste à moda e ao aplauso.'},
+{id:'m7',mod:'mente',n:3,tag:'cog',title:'Yoga de perspectivas',dur:'20 min · semanal',desc:'Habitar deliberadamente a primeira, a segunda e a terceira pessoa sobre um problema vivo, antes de concluir.',como:'Sobre o mesmo tema: como eu sinto isto por dentro; como isto é entre nós; como isto aparece como sistema observável.',fut:'Granularidade de percepção em problemas sociais complexos.'},
+{id:'e1',mod:'espirito',n:1,tag:'esp',title:'Contagem de respirações',dur:'10 min · diário',desc:'Contar respirações de um a dez e recomeçar. A prática de aterramento mais simples e mais subestimada.',como:'Ao perder a conta, recomece sem julgamento. Perceber que perdeu é a prática — não o erro.',fut:'Estabiliza a atenção — pré-requisito de qualquer prática mais profunda.'},
+{id:'e2',mod:'espirito',n:1,tag:'esp',title:'Momentos de silêncio breve',dur:'1 min · várias vezes ao dia',desc:'Micro-pausas ao longo do dia para reconhecer a sensação pura de existir, anterior a qualquer papel.',como:'Nas transições — antes de uma reunião, ao sentar no carro — pare por 60 segundos e apenas note que você está aqui.',fut:'Traz a presença para o cotidiano, em vez de confiná-la à almofada.'},
+{id:'e3',mod:'espirito',n:2,tag:'sutil',title:'Calma e visão clara',dur:'20 min · diário',desc:'Duas fases: primeiro estabilizar a atenção num objeto; depois abrir para observar o que surge sem interferir.',como:'Dez minutos na respiração; dez minutos observando pensamentos, sons e sensações surgirem e passarem, sem seguir nenhum.',fut:'Desenvolve simultaneamente concentração e discernimento.'},
+{id:'e4',mod:'espirito',n:2,tag:'test',title:'Presença do Vidente (Eu Sou)',dur:'20 min · diário',desc:'Ancorar a identidade na presença que permanece quando papéis, pensamentos e emoções são removidos.',como:'"Não sou meus pensamentos. Não sou minhas emoções. Não sou meus papéis." Depois de cada negação, permaneça no que resta.',fut:'Identidade transpessoal estável para liderar sistemas complexos sem perder o centro.'},
+{id:'e5',mod:'espirito',n:3,tag:'causal',title:'Grande Silêncio',dur:'30–60 min · semanal',desc:'Sentar sem objeto, sem técnica e sem objetivo. Permanecer na presença sem forma.',como:'Não faça nada com o que surge — nem seguir, nem afastar. Se aparecer a pergunta "estou fazendo certo?", note que ela também surge nesse espaço.',fut:'Acessa o estado causal que fundamenta decisões de sabedoria.'},
+{id:'e6',mod:'espirito',n:3,tag:'nd',title:'Indagação não-dual',dur:'20 min · diário',desc:'"Quem está ciente disto?" — indagação direta da natureza da consciência, sem método, apenas a pergunta.',como:'Faça a pergunta e não responda com o pensamento. Deixe a atenção voltar-se para aquilo que olha, em vez do que é olhado.',fut:'Coordenação kosmocêntrica a partir do ser, antes da ação.'},
+{id:'e7',mod:'espirito',n:3,tag:'esp',title:'As três faces do Sagrado',dur:'20 min · semanal',desc:'Contemplar o fundamento como Isso (a perfeição de tudo que surge), como Tu (comunhão e gratidão) e como Eu (a Testemunha).',como:'Cerca de sete minutos em cada face, nesta ordem. Termine repousando em silêncio, sem escolher nenhuma delas.',fut:'Integra as três perspectivas do sagrado, evitando a unilateralidade da prática apenas impessoal.'},
+{id:'s1',mod:'sombra',n:1,tag:'self',title:'Inventário de gatilhos',dur:'5 min · diário',desc:'Registrar o que provocou carga emocional desproporcional no dia — o material bruto de todo trabalho de sombra.',como:'Anote apenas o fato e a intensidade, sem interpretar. Ao fim de duas semanas, procure o padrão.',fut:'Torna a sombra visível antes de tentar integrá-la.'},
+{id:'s2',mod:'sombra',n:1,tag:'rel',title:'Aproximar o evitado',dur:'10 min · diário',desc:'Voltar-se com amizade exatamente para aquilo que se evita — uma emoção, uma conversa, uma verdade.',como:'Escolha uma coisa evitada hoje. Aproxime-se dela por dez minutos com curiosidade, sem obrigação de resolver.',fut:'Maturidade para liderar em conflito real, sem fuga elegante.'},
+{id:'s3',mod:'sombra',n:2,tag:'self',title:'O espelho da projeção',dur:'20 min · semanal',desc:'Tratar uma carga forte — irritação ou admiração intensa por alguém — como parte exilada de si, e reapropriá-la.',como:'Três passos: descreva a pessoa em terceira pessoa; converse com ela em segunda pessoa, perguntando o que ela quer de você; por fim fale como ela, em primeira pessoa.',fut:'Recupera energia vital aprisionada na sombra — combustível direto para criar.'},
+{id:'s4',mod:'sombra',n:2,tag:'esp',title:'Inventário de bypass',dur:'reflexão · semanal',desc:'Onde usei "espiritualidade" para evitar um conflito, uma conversa difícil ou uma responsabilidade prática esta semana?',como:'Seja específico: nomeie a situação, a frase usada para escapar e o que teria sido dito se você não tivesse escapado.',fut:'O coração do anti-bypass: garante que a transcendência inclua em vez de fugir.'},
+{id:'s5',mod:'sombra',n:3,tag:'esp',title:'Sombra de altitude',dur:'30 min · mensal',desc:'A sombra específica do próprio estágio — a mais invisível, porque se disfarça de virtude.',como:'Pergunte: onde minha serenidade é distância? onde minha visão sistêmica é desprezo? onde minha missão é fuga da responsabilidade cotidiana?',fut:'Impede que o desenvolvimento vire superioridade espiritual.'},
+{id:'s6',mod:'sombra',n:3,tag:'som',title:'Amizade com a contração',dur:'20 min · semanal',desc:'Aproximar-se de estados de contração ou medo a partir de um lugar de inteireza — sem tentar consertá-los.',como:'Localize a contração no corpo. Em vez de dissolvê-la, ofereça-lhe companhia, como quem senta ao lado de alguém que sofre.',fut:'Integração profunda sem espiritualizar o sintoma nem forçar a cura.'},
+{id:'r1',mod:'relacional',n:1,tag:'rel',title:'Escuta sem preparar resposta',dur:'contínua',desc:'Escutar sem usar o tempo do outro para formular o que você vai dizer.',como:'Em cada conversa importante, espere dois segundos após o outro terminar antes de falar. Note o impulso de interromper.',fut:'Base de toda liderança relacional — e o hábito mais difícil de mudar.'},
+{id:'r2',mod:'relacional',n:2,tag:'rel',title:'Reconstrução do argumento mais forte',dur:'15 min · semanal',desc:'Reconstruir a posição de quem você discorda na versão mais forte possível — mais forte do que ele próprio a formulou.',como:'Escreva o argumento oponente até que um defensor dele diria "é exatamente isso". Só depois responda.',fut:'Despolariza campos coletivos e constrói autoridade legítima.'},
+{id:'r3',mod:'relacional',n:2,tag:'self',title:'Humildade confiante',dur:'mensal',desc:'Desafiar ativamente as próprias crenças buscando feedback de quem pensa diferente.',como:'Escolha uma convicção central. Procure a pessoa mais qualificada que discorda dela e peça que a critique. Ouça sem defender.',fut:'Impede que altitude vire arrogância epistemológica.'},
+{id:'r4',mod:'relacional',n:3,tag:'rel',title:'Presença no conflito',dur:'contínua',desc:'Permanecer regulado, presente e não-defensivo no meio de conflito real, sem apaziguar prematuramente.',como:'No conflito, mantenha contato com o corpo e não busque encerrar a tensão antes que o essencial apareça.',fut:'Transformação de conflitos coletivos onde a maioria colapsa ou foge.'},
+{id:'r5',mod:'relacional',n:3,tag:'rel',title:'Facilitação de campo',dur:'variável',desc:'Sustentar deliberadamente a coerência de um grupo para que as decisões emerjam de um estado mais amplo que a soma dos egos.',como:'Abra com silêncio, explicite o propósito maior e intervenha menos do que o impulso pede. Sustentar o campo é mais eficaz do que conduzir o conteúdo.',fut:'Cria os espaços coletivos onde futuros kosmocêntricos podem ser decididos.'},
+{id:'k1',mod:'cocriacao',n:1,tag:'val',title:'Dupla saída',dur:'reflexão · semanal',desc:'Para cada integração interior, nomear a contribuição sistêmica concreta que ela destrava no mundo.',como:'Complete a frase: "porque integrei X, agora sou capaz de criar Y no mundo". Se não houver Y, a integração ainda é teoria.',fut:'Transforma desenvolvimento pessoal em cocriação planetária.'},
+{id:'k2',mod:'cocriacao',n:1,tag:'mor',title:'Ação como serviço',dur:'contínua',desc:'Transformar uma atividade cotidiana em serviço: definir uma intenção que exceda o ganho pessoal e soltar o resultado.',como:'Antes da tarefa, defina a quem ela serve além de você. Execute com esmero. Ao terminar, solte o apego ao reconhecimento.',fut:'Economia de dons praticada antes de virar projeto.'},
+{id:'k3',mod:'cocriacao',n:2,tag:'cog',title:'Memória do futuro',dur:'45 min · mensal',desc:'Prototipar a partir de um futuro kosmocêntrico desejado, escrevendo ou desenhando como se você o estivesse recordando.',como:'"Em 2040, acordei em um mundo onde…". Descreva em detalhe sensorial. Depois nomeie uma ação desta semana que já aponta para lá.',fut:'A ficção habitada cria o campo que atrai o futuro — e converte visão em passo concreto.'},
+{id:'k4',mod:'cocriacao',n:2,tag:'self',title:'Ativação do papel evolutivo',dur:'3 h · mensal',desc:'Identificar e ativar o papel único que sua vida ocupa no campo maior — o projeto pessoal como célula de um organismo planetário.',como:'Bloco de três horas sem interrupção. Mapeie: o que só você, com sua história e posição, pode fazer? Comprometa-se com um passo concreto.',fut:'Dá vetor ao futuro: o desenvolvimento vira contribuição situada.'},
+{id:'k5',mod:'cocriacao',n:3,tag:'cog',title:'Campo caórdico',dur:'contínua',desc:'Sustentar presença produtiva na tensão entre caos e ordem, sem colapsar a complexidade em respostas prematuras.',como:'Diante da incerteza, resista por 48 horas ao impulso de resolver. Observe que forma emerge quando você não força.',fut:'Liderança que prospera onde as camadas anteriores travam.'},
+{id:'k6',mod:'cocriacao',n:3,tag:'rel',title:'Círculo de cocriação',dur:'mensal',desc:'Encontro regular com um pequeno grupo de pares em altitude semelhante, para decidir e criar a partir do campo comum.',como:'De duas a doze pessoas. Abra em silêncio, compartilhe o que quer emergir através de cada um, decida a partir do campo e não do debate.',fut:'A cocriação genuína só é possível entre pares — o resto é negociação entre egos.'}
+];
+
+const LK=['Nunca','Raramente','Às vezes','Frequentemente','Sempre'];
+
+/* ════════ STORAGE ════════ */
+const MEM={};
+function hasLS(){try{const x='__k';localStorage.setItem(x,'1');localStorage.removeItem(x);return true;}catch(e){return false;}}
+const store={
+ async get(k){try{if(window.storage){const r=await window.storage.get(k);return r?JSON.parse(r.value):null;}}catch(e){}
+  try{if(hasLS()){const v=localStorage.getItem(k);if(v!=null)return JSON.parse(v);}}catch(e){} return (k in MEM)?MEM[k]:null;},
+ async set(k,v){MEM[k]=v;try{if(window.storage){await window.storage.set(k,JSON.stringify(v));return;}}catch(e){}
+  try{if(hasLS()){localStorage.setItem(k,JSON.stringify(v));}}catch(e){}}
+};
+const PERSISTS=(typeof window!=='undefined')&&(!!window.storage||hasLS());
+
+/* ════════ STATE ════════ */
+let S={screen:'intro',name:'',lead:null,step:0,qi:0,lineAns:{},stateAns:{},stageAns:[],result:null,selected:new Set(),log:{},snaps:[]};
+const app=()=>document.getElementById('app');
+function go(s){S.screen=s;render();window.scrollTo(0,0);}
+
+/* ════════ SCORING ════════ */
+function lineScore(id){const a=S.lineAns[id]||[0,0,0];return Math.min(100,Math.round((a[0]*0.33+a[1]*0.66+a[2]*1.0)/7.96*100));}
+function lineStage(sc){return sc<18?0:sc<38?1:sc<60?2:sc<78?3:sc<90?4:sc<97?5:6;}
+function band(sc){return sc<40?'b':sc<72?'m':'a';}
+function stateScore(id){const a=S.stateAns[id]||[0,0];return{access:Math.round(a[0]/4*100),plateau:a[1]>=a[0]&&a[0]>=3};}
+function compute(){
+ const lines={};LINES.forEach(l=>{const sc=lineScore(l.id);lines[l.id]={score:sc,stage:lineStage(sc),band:band(sc)};});
+ const states={};STATES.forEach(s=>states[s.id]=stateScore(s.id));
+ const votes=new Array(7).fill(0);
+ S.stageAns.forEach((o,i)=>{if(o!=null)votes[STAGE_Q[i].opts[o].s]+=2;});
+ ['cog','self','val'].forEach(id=>votes[lines[id].stage]+=1);
+ const total=votes.reduce((a,b)=>a+b,0)||1;
+ let g=0;votes.forEach((v,i)=>g+=v*i);g=g/total;
+ const primary=Math.max(0,Math.min(6,Math.round(g)));
+ const emergent=Math.min(6,primary+1),anterior=Math.max(0,primary-1);
+ const overall=Math.round(LINES.reduce((a,l)=>a+lines[l.id].score,0)/LINES.length);
+ const highStates=(states.sutil.access+states.causal.access+states.nd.access)/3;
+ const others=(lines.self.score+lines.val.score+lines.mor.score+lines.rel.score+lines.som.score)/5;
+ const flags=[];
+ if(highStates>55&&primary<4)flags.push({t:'Estados acima do estágio',c:'var(--warn)',
+  d:'Você acessa estados elevados — sutil, causal ou não-dual — que ainda são interpretados por uma estrutura mais convencional. Esta é a assinatura clássica da falácia pré-trans: a experiência é real, mas a moldura que a lê ainda não é transpessoal. O risco prático é literalizar o vislumbre, transformando-o em identidade, missão especial ou certeza inquestionável. O trabalho aqui não é meditar mais: é amadurecer a estrutura que interpreta a experiência.'});
+ if(lines.cog.score-others>22)flags.push({t:'Familiaridade vs. descrição',c:'var(--alert)',
+  d:'Sua linha cognitiva está bem acima das demais — sinal de que você domina o vocabulário da terceira camada mais do que o encarna. É a armadilha central do líder integral: memorizar o mapa pode impedir a transformação, porque convence o ego de que ele já chegou. A saída é descer o conhecimento para onde ele não pode ser fingido: o corpo, a sombra e a relação. Escolha práticas desses três módulos antes de acrescentar qualquer novo conceito.'});
+ if(lines.som.score<others-18)flags.push({t:'Topo pesado, base leve',c:'var(--warn)',
+  d:'Sua linha somática está atrás das demais. Altitude sem encarnação é instável: estados elevados sem base corporal oscilam sob pressão e tendem à desencarnação. Esta é a linha prioritária — não a mais forte. A terceira camada não flutua: ela enraíza mais fundo do que qualquer estágio anterior.'});
+ if(highStates>60&&states.denso.access<55)flags.push({t:'Subir sem ancorar',c:'var(--warn)',
+  d:'Forte acesso a estados expandidos com presença encarnada mais baixa. A realização só se torna útil ao mundo quando desce à matéria: o movimento completo não é apenas ascender, é trazer de volta. Ancorar não é um passo anterior ao caminho — é parte dele.'});
+ if(lines.rel.score<others-15)flags.push({t:'Altitude sem relação',c:'var(--warn)',
+  d:'Sua linha interpessoal está atrás do conjunto. É o padrão mais comum entre pessoas cognitivamente avançadas — e o que mais limita a liderança no mundo real, porque nenhuma visão sistêmica se realiza sem a capacidade de estar com quem discorda. Priorize o módulo Relacional.'});
+ if(lines.esp.score>lines.mor.score+22)flags.push({t:'Despertar sem crescer',c:'var(--warn)',
+  d:'Seu acesso espiritual (Waking Up) está bem acima da sua maturação moral (Growing Up). São eixos independentes: é possível ter experiências profundas de unidade e ainda operar eticamente num círculo estreito. Historicamente, é essa combinação que produz os escândalos de mestres espirituais. O contrapeso é ética aplicada e sombra — não mais meditação.'});
+ const higher=votes.slice(4).reduce((a,b)=>a+b,0);
+ const threshold=Math.round(higher/total*100);
+ const arr=LINES.map(l=>({id:l.id,name:l.name,score:lines[l.id].score})).sort((a,b)=>b.score-a.score);
+ return{lines,states,primary,emergent,anterior,overall,flags,threshold,leader:arr[0],lagger:arr[arr.length-1],highStates:Math.round(highStates)};
+}
+function nextState(){const order=['denso','sutil','causal','test','nd'],r=S.result;
+ for(let i=0;i<order.length;i++){const id=order[i];if(!r.states[id].plateau&&r.states[id].access>15)return STATES.filter(s=>s.id===id)[0];}
+ return STATES[4];}
+function lineById(id){return LINES.filter(l=>l.id===id)[0];}
+
+/* ════════ INTRO ════════ */
+function renderIntro(){
+ app().innerHTML='<div class="eyebrow" style="text-align:center;margin-bottom:16px">Kosmos · Avaliação Premium</div>'+
+ '<div style="text-align:center"><h1>Assessment Completo<br><span class="serif" style="background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">da Terceira Camada</span></h1></div>'+
+ '<p class="lead" style="margin:20px auto 10px;text-align:center">Um mapa em três eixos para lideranças que criam o futuro. Não medimos um ponto — medimos seu território: os <b style="color:var(--text);font-weight:500">estágios</b> que você habita, os <b style="color:var(--text);font-weight:500">estados</b> que você acessa e as <b style="color:var(--text);font-weight:500">linhas</b> que compõem o seu psicógrafo. Ao cruzá-los, revelamos as falácias pré-trans e as sombras que só a sua configuração específica produz.</p>'+
+ '<p class="note" style="text-align:center;margin:14px auto 26px">36 itens · cerca de 14 minutos · relatório completo, protocolo de práticas e painel de acompanhamento</p>'+
+ '<div class="card glow" style="max-width:540px;margin:0 auto">'+
+ '<div class="eyebrow" style="margin-bottom:10px">Antes de começar</div>'+
+ '<input class="field" id="nm" placeholder="Seu nome ou como prefere ser chamado"/>'+
+ '<div class="grid3" style="gap:10px;margin:16px 0 18px">'+
+ '<div style="text-align:center"><div class="serif" style="font-size:30px">3</div><div class="note">eixos</div></div>'+
+ '<div style="text-align:center"><div class="serif" style="font-size:30px">7</div><div class="note">estágios</div></div>'+
+ '<div style="text-align:center"><div class="serif" style="font-size:30px">7</div><div class="note">linhas</div></div></div>'+
+ '<button class="btn" id="start" style="width:100%">Iniciar meu mapeamento</button>'+
+ '<p class="note" style="text-align:center;margin-top:13px">Responda com honestidade radical. Não há respostas certas — só o seu mapa real. A tendência a se avaliar acima é, ela mesma, a primeira sombra a observar.</p></div>';
+ document.getElementById('start').onclick=function(){S.name=document.getElementById('nm').value.trim();S.step=0;S.qi=0;go('assess');};
+}
+
+/* ════════ ASSESSMENT ════════ */
+function assessTotal(){return LINES.length*3+STATES.length*2+STAGE_Q.length;}
+function assessDone(){let n=0;
+ LINES.forEach(l=>{(S.lineAns[l.id]||[]).forEach(v=>{if(v!=null)n++;});});
+ STATES.forEach(s=>{(S.stateAns[s.id]||[]).forEach(v=>{if(v!=null)n++;});});
+ S.stageAns.forEach(a=>{if(a!=null)n++;});return n;}
+function renderAssess(){
+ const total=assessTotal(),pct=assessDone()/total*100;let html='';
+ if(S.step===0){const l=LINES[S.qi],a=S.lineAns[l.id]||[null,null,null];
+  html='<div class="tag" style="margin-bottom:14px">Eixo 3 · Linhas de desenvolvimento</div><h2>'+l.name+'</h2><div class="note" style="margin:4px 0 8px">'+l.teo+'</div><p class="body" style="margin-bottom:16px">'+l.sobre+'</p>'+
+   l.items.map(function(it,j){return '<div class="card" style="margin-bottom:12px;padding:16px 18px"><div style="font-size:14px">'+it+'</div><div class="likert" data-li="'+l.id+'" data-j="'+j+'">'+
+   LK.map(function(lb,v){return '<div class="lk'+(a[j]===v?' sel':'')+'" data-v="'+v+'"><b>'+(v+1)+'</b>'+lb+'</div>';}).join('')+'</div></div>';}).join('');
+ }else if(S.step===1){const s=STATES[S.qi],a=S.stateAns[s.id]||[null,null];
+  html='<div class="tag" style="margin-bottom:14px">Eixo 2 · Estados de consciência</div><h2>'+s.name+'</h2><div class="note" style="margin:4px 0 8px">'+s.desc+'</div><p class="body" style="margin-bottom:16px">'+s.sobre+'</p>'+
+   s.items.map(function(t,j){return '<div class="card" style="margin-bottom:12px;padding:16px 18px"><div class="eyebrow" style="margin-bottom:8px">'+(j===0?'Frequência de acesso':'Estabilidade · platô ou pico')+'</div><div style="font-size:14px">'+t+'</div><div class="likert" data-st="'+s.id+'" data-j="'+j+'">'+
+   LK.map(function(lb,v){return '<div class="lk'+(a[j]===v?' sel':'')+'" data-v="'+v+'"><b>'+(v+1)+'</b>'+lb+'</div>';}).join('')+'</div></div>';}).join('');
+ }else{const q=STAGE_Q[S.qi],a=S.stageAns[S.qi];
+  html='<div class="tag" style="margin-bottom:14px">Eixo 1 · '+q.type+'</div><h2 style="font-size:25px;line-height:1.25">'+q.q+'</h2><div style="margin-top:18px">'+
+   q.opts.map(function(o,j){return '<button class="opt'+(a===j?' sel':'')+'" data-sq="'+j+'"><span class="dot"></span><span>'+o.t+'</span></button>';}).join('')+'</div>';
+ }
+ const done=(S.step===0&&(S.lineAns[LINES[S.qi].id]||[]).filter(function(x){return x!=null;}).length===3)
+  ||(S.step===1&&(S.stateAns[STATES[S.qi].id]||[]).filter(function(x){return x!=null;}).length===2)
+  ||(S.step===2&&S.stageAns[S.qi]!=null);
+ const last=S.step===2&&S.qi===STAGE_Q.length-1;
+ app().innerHTML='<div style="display:flex;justify-content:space-between;align-items:center"><div class="note" id="back" style="cursor:pointer">← voltar</div><div class="note">'+assessDone()+' / '+total+'</div></div>'+
+ '<div class="prog"><i style="width:'+pct+'%"></i></div><div class="fade">'+html+'</div>'+
+ '<div style="margin-top:22px;display:flex;justify-content:flex-end"><button class="btn" id="next"'+(done?'':' disabled')+'>'+(last?'Ver meu relatório completo':'Continuar')+'</button></div>';
+ document.querySelectorAll('.likert').forEach(function(g){g.querySelectorAll('.lk').forEach(function(b){b.onclick=function(){
+  const v=+b.dataset.v,j=+g.dataset.j;
+  if(g.dataset.li){const id=g.dataset.li;S.lineAns[id]=S.lineAns[id]||[null,null,null];S.lineAns[id][j]=v;}
+  else{const id=g.dataset.st;S.stateAns[id]=S.stateAns[id]||[null,null];S.stateAns[id][j]=v;}
+  renderAssess();};});});
+ document.querySelectorAll('.opt[data-sq]').forEach(function(b){b.onclick=function(){S.stageAns[S.qi]=+b.dataset.sq;renderAssess();};});
+ document.getElementById('back').onclick=function(){
+  if(S.qi>0)S.qi--;else if(S.step>0){S.step--;S.qi=(S.step===0?LINES.length:STATES.length)-1;}else{go('intro');return;}renderAssess();};
+ document.getElementById('next').onclick=function(){
+  const max=(S.step===0?LINES.length:S.step===1?STATES.length:STAGE_Q.length)-1;
+  if(S.qi<max)S.qi++;else if(S.step<2){S.step++;S.qi=0;}else{S.result=compute();go('capture');return;}renderAssess();};
+}
+
+/* ════════ CAPTURA ════════ */
+function renderCapture(){
+ app().innerHTML='<div class="prog"><i style="width:100%"></i></div>'+
+ '<div style="text-align:center"><div class="eyebrow" style="margin-bottom:12px">Seu relatório está pronto</div>'+
+ '<h1 style="font-size:clamp(28px,6vw,44px)">Para onde enviamos<br><span class="serif" style="background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">o seu mapa?</span></h1>'+
+ '<p class="lead" style="margin:16px auto 22px">Preencha para abrir o relatório completo — psicógrafo, estados, falácias pré-trans, sombras a integrar e o protocolo de práticas.</p></div>'+
+ '<div class="card" style="max-width:520px;margin:0 auto">'+
+ '<input class="field" id="f-nome" placeholder="Seu nome" autocomplete="name" value="'+(S.name||'')+'"/>'+
+ '<input class="field" id="f-email" type="email" placeholder="Seu melhor e-mail" autocomplete="email" inputmode="email"/>'+
+ '<input class="field" id="f-whats" type="tel" placeholder="WhatsApp com DDD" autocomplete="tel" inputmode="tel"/>'+
+ '<div class="ferr" id="f-err"></div>'+
+ '<button class="btn" id="reveal" style="width:100%">Abrir meu relatório completo →</button>'+
+ '<p class="note" style="text-align:center;margin-top:12px">Ao continuar, você concorda em receber conteúdos da Kosmos. Seus dados estão protegidos e você pode se descadastrar quando quiser.</p></div>';
+ document.getElementById('reveal').onclick=submitLead;
+ ['f-nome','f-email','f-whats'].forEach(function(id){document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter')submitLead();});});
+}
+function ferr(m){const e=document.getElementById('f-err');if(e){e.textContent=m;e.style.display='block';}}
+async function submitLead(){
+ const nome=document.getElementById('f-nome').value.trim();
+ const email=document.getElementById('f-email').value.trim();
+ const whats=document.getElementById('f-whats').value.trim();
+ if(!nome)return ferr('Digite seu nome.');
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return ferr('Digite um e-mail válido.');
+ if(whats.replace(/\D/g,'').length<10)return ferr('Digite um WhatsApp válido com DDD.');
+ S.name=nome;S.lead={nome:nome,email:email,whatsapp:whats};
+ const b=document.getElementById('reveal');b.disabled=true;b.textContent='Abrindo...';
+ const r=S.result,st=STAGES[r.primary],ns=nextState();
+ const payload={nome:nome,email:email,whatsapp:whats,
+  centro_de_gravidade:st.name,altitude:st.alt,camada:st.camada,
+  coeficiente:r.overall+'%',limiar_51:r.threshold+'%',
+  linha_lider:r.leader.name,linha_atrasada:r.lagger.name,
+  proximo_estagio:STAGES[r.emergent].name,proximo_estado:ns.name,
+  alertas_pre_trans:(r.flags.map(function(f){return f.t;}).join(' | ')||'nenhum'),
+  origem:'Assessment Completo · Kosmos',data:new Date().toISOString()};
+ try{if(MAKE_WEBHOOK_URL.indexOf('COLE_AQUI')===-1)await fetch(MAKE_WEBHOOK_URL,{method:'POST',body:new URLSearchParams(payload)});}catch(e){}
+ await store.set('kosmos_ac_result',{name:nome,result:r,date:Date.now()});
+ go('dash');
+}
+
+/* ════════ VIZ ════════ */
+function avatarSVG(){const r=S.result,pl=r.primary,ol=r.overall/100,seg=160/7;let s='';
+ for(let i=0;i<7;i++){const y=170-(i+1)*seg;
+  s+='<rect x="30" y="'+y+'" width="34" height="'+(seg-2.5)+'" rx="4" fill="'+C[i]+'" opacity="'+(0.14+(i<=pl?0.78:0.18)*(0.5+ol*0.5))+'"/>';}
+ return '<svg width="100" height="195" viewBox="0 0 100 195"><circle cx="47" cy="17" r="13" fill="'+C[pl]+'" opacity="'+(0.35+ol*0.6)+'"/>'+s+
+ '<text x="47" y="190" text-anchor="middle" font-size="9" fill="#7888b0" font-family="DM Mono">coef '+r.overall+'%</text></svg>';}
+function radarSVG(){const r=S.result,cx=110,cy=108,R=82,N=LINES.length;
+ const pt=function(i,rr){const a=-Math.PI/2+i*2*Math.PI/N;return[cx+Math.cos(a)*rr*R,cy+Math.sin(a)*rr*R];};
+ let g='';for(let ring=1;ring<=3;ring++){const p=[];for(let i=0;i<N;i++)p.push(pt(i,ring/3).join(','));
+  g+='<polygon points="'+p.join(' ')+'" fill="none" stroke="rgba(120,140,200,0.10)"/>';}
+ for(let i=0;i<N;i++){const q=pt(i,1);g+='<line x1="'+cx+'" y1="'+cy+'" x2="'+q[0]+'" y2="'+q[1]+'" stroke="rgba(120,140,200,0.08)"/>';}
+ const poly=LINES.map(function(l,i){return pt(i,Math.max(.05,r.lines[l.id].score/100)).join(',');}).join(' ');
+ let d='',lb='';LINES.forEach(function(l,i){const p=pt(i,Math.max(.05,r.lines[l.id].score/100));
+  d+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.5" fill="'+C[r.lines[l.id].stage]+'"/>';
+  const q=pt(i,1.2);lb+='<text x="'+q[0]+'" y="'+q[1]+'" text-anchor="middle" font-size="8.5" fill="#7888b0" font-family="DM Mono">'+l.name.split(' ')[0]+'</text>';});
+ return '<svg width="220" height="216" viewBox="0 0 220 216"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6272f0"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs>'+g+
+ '<polygon points="'+poly+'" fill="url(#rg)" fill-opacity="0.16" stroke="url(#rg)" stroke-width="1.8"/>'+d+lb+'</svg>';}
+
+/* ════════ RECOMENDAÇÃO ════════ */
+function recommend(){const r=S.result,ids=[];
+ const add=function(id){if(ids.indexOf(id)===-1)ids.push(id);};
+ const minN=r.primary<=1?1:r.primary<=3?1:2,maxN=r.primary<=1?2:3;
+ const fits=function(p){return p.n>=minN&&p.n<=maxN;};
+ PRACTICES.filter(function(p){return p.tag===r.lagger.id&&fits(p);}).slice(0,2).forEach(function(p){add(p.id);});
+ r.flags.forEach(function(f){
+  if(f.t.indexOf('Familiaridade')>-1){add('s3');add('r2');}
+  if(f.t.indexOf('Topo')>-1||f.t.indexOf('ancorar')>-1){add('c3');add('c1');}
+  if(f.t.indexOf('Estados acima')>-1){add('s4');add('m4');}
+  if(f.t.indexOf('relação')>-1){add('r1');add('r2');}
+  if(f.t.indexOf('Despertar sem')>-1){add('s5');add('k1');}});
+ const map={denso:'c1',sutil:'e3',causal:'e5',test:'e4',nd:'e6'};
+ const ns=nextState().id;if(map[ns])add(map[ns]);
+ add(r.primary>=4?'k4':'k1');
+ if(ids.length<5)PRACTICES.filter(fits).forEach(function(p){if(ids.length<6)add(p.id);});
+ ids.forEach(function(i){S.selected.add(i);});
+ return ids;}
+
+/* ════════ NAV ════════ */
+function navBar(a){return '<div class="nav no-print"><div class="lg">k<b>o</b>smos</div><div class="tabs">'+
+ '<div class="tab '+(a==='dash'?'on':'')+'" data-t="dash">Relatório</div>'+
+ '<div class="tab '+(a==='monitor'?'on':'')+'" data-t="monitor">Monitoramento</div>'+
+ '<div class="tab" data-t="intro">Refazer</div></div></div>';}
+function bindNav(){document.querySelectorAll('.tab[data-t]').forEach(function(t){t.onclick=function(){const d=t.dataset.t;
+ if(d==='intro'){S.lineAns={};S.stateAns={};S.stageAns=[];S.selected=new Set();S.step=0;S.qi=0;S.result=null;go('intro');}else go(d);};});}
+
+/* ════════ RELATÓRIO ════════ */
+function renderDash(){
+ const r=S.result,st=STAGES[r.primary],ns=nextState(),lag=lineById(r.lagger.id);
+ const badge=function(i){return '<span class="badge" style="background:'+C[i]+'22;color:'+C[i]+'">'+STAGES[i].name+'</span>';};
+ const lineScales=LINES.map(function(l){const o=r.lines[l.id];
+  return '<div class="scale-row"><div class="scale-top"><span>'+l.name+' <span class="theo">'+STAGES[o.stage].alt+'</span></span><span class="vl">'+o.score+'%</span></div>'+
+  '<div class="scale-tr"><div class="scale-fl" style="width:'+o.score+'%;background:'+C[o.stage]+'"></div>'+
+  [1,2,3,4,5,6].map(function(m){return '<div class="scale-mk" style="left:'+(m/7*100)+'%"></div>';}).join('')+'</div>'+
+  '<div class="scale-txt">'+l[o.band]+'</div></div>';}).join('');
+ const stateScales=STATES.map(function(s){const o=r.states[s.id];
+  const tx=o.access<25?('Acesso ainda pontual. '+s.sobre)
+   :(o.plateau?'<b style="color:var(--text);font-weight:500">Platô:</b> este estado já é estável e disponível — comporta-se como traço, não como evento. É parte da base a partir da qual você opera.'
+    :'<b style="color:var(--text);font-weight:500">Pico:</b> o acesso é real, mas ainda episódico. O trabalho é a regularidade — transformar experiência em estrutura. Um vislumbre repetido por meses vira traço.');
+  return '<div class="scale-row"><div class="scale-top"><span>'+s.name+'</span><span class="vl">'+o.access+'% · '+(o.access<25?'—':(o.plateau?'platô':'pico'))+'</span></div>'+
+  '<div class="scale-tr"><div class="scale-fl" style="width:'+o.access+'%;background:'+(o.plateau?'linear-gradient(90deg,#6272f0,#a855f7)':'#7888b0')+'"></div></div>'+
+  '<div class="scale-txt">'+tx+'</div></div>';}).join('');
+ let youState=0,bv=-1;STATES.forEach(function(s,i){if(r.states[s.id].access>bv){bv=r.states[s.id].access;youState=i;}});
+ const cols=['Denso','Sutil','Causal','Test.','N-Dual'];
+ let mx='<div class="matrix" style="grid-template-columns:88px repeat(5,1fr)"><div></div>'+cols.map(function(c){return '<div class="mx-head">'+c+'</div>';}).join('');
+ for(let i=6;i>=0;i--){mx+='<div class="mx-head" style="text-align:right;padding-right:6px">'+STAGES[i].alt.split(' ')[0]+'</div>';
+  for(let j=0;j<5;j++){const you=(i===r.primary&&j===youState);mx+='<div class="mx-cell'+(you?' you':'')+'">'+(you?'você':'')+'</div>';}}
+ mx+='</div>';
+ const recIds=recommend();
+
+ app().innerHTML=navBar('dash')+
+ '<div class="card glow" style="margin-bottom:16px"><div class="eyebrow" style="margin-bottom:8px">'+(S.name?S.name+' · ':'')+'Seu centro de gravidade</div>'+
+ '<div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center"><div>'+avatarSVG()+'</div><div style="flex:1;min-width:250px">'+
+ '<h1 style="font-size:clamp(28px,5vw,44px)">'+st.name+'</h1>'+
+ '<div class="serif" style="font-size:20px;margin:2px 0 6px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">'+st.alt+'</div>'+
+ '<div style="margin-bottom:10px"><span class="tag" style="border-color:'+C[r.primary]+'55;color:'+C[r.primary]+'">'+st.camada+'</span> <span class="tag">'+st.pessoa+'</span></div>'+
+ '<p style="font-size:14.5px;color:var(--muted2)">'+st.lead+'</p>'+
+ '<div style="margin-top:12px">'+st.teoricos.map(function(t){return '<span class="theo">'+t+'</span>';}).join('')+'</div></div></div>'+
+ '<div class="divider"></div><div class="grid3">'+
+ '<div><div class="eyebrow" style="margin-bottom:6px">Lógica anterior</div>'+badge(r.anterior)+'<div class="note" style="margin-top:6px">Para onde você regride sob estresse, cansaço ou ameaça. Reconhecer isso evita surpresa nos momentos difíceis.</div></div>'+
+ '<div><div class="eyebrow" style="margin-bottom:6px">Lógica atual</div>'+badge(r.primary)+'<div class="note" style="margin-top:6px">Seu sistema operacional dominante — de onde você age quando não está sob pressão.</div></div>'+
+ '<div><div class="eyebrow" style="margin-bottom:6px">Lógica emergente</div>'+badge(r.emergent)+'<div class="note" style="margin-top:6px">O que já pulsa como próximo passo. Você a visita em bons momentos; ela ainda não é sua base.</div></div></div></div>'+
+
+ '<div class="card" style="margin-bottom:16px"><div class="sec-h" style="margin-top:0"><span class="n">00</span><h3>Como ler este relatório</h3></div>'+
+ '<p class="lead" style="max-width:none">Seu desenvolvimento não é um número: é um território em três eixos independentes — e é justamente o cruzamento entre eles que revela o que nenhum teste de nível único mostra.</p>'+
+ '<div class="grid3" style="margin-top:14px">'+
+ '<div class="sub"><h4>Estágios · Growing Up</h4><p class="body">A estrutura permanente a partir da qual você interpreta tudo. Muda devagar, em anos, e não retrocede facilmente.</p></div>'+
+ '<div class="sub"><h4>Estados · Waking Up</h4><p class="body">As experiências de consciência que você acessa. Podem ser profundas hoje e ausentes amanhã — até se estabilizarem como traço.</p></div>'+
+ '<div class="sub"><h4>Linhas · o psicógrafo</h4><p class="body">Suas inteligências, cada uma podendo estar numa altitude diferente. Ninguém é uniformemente desenvolvido.</p></div></div>'+
+ '<p class="body"><b style="color:var(--text);font-weight:500">Nota metodológica.</b> Este é um indicador de autopercepção desenvolvimental, não uma medida pericial pontuada por avaliador certificado, como os instrumentos de completar frases usados em pesquisa. Ele empresta a lógica desses instrumentos — perfil em vez de nota, leitura de como você constrói significado, vetor de desenvolvimento — sem simular a pontuação clínica. Leia-o como um espelho de alta resolução, não como um veredito.</p></div>'+
+
+ '<div class="card" style="margin-bottom:16px"><div class="sec-h" style="margin-top:0"><span class="n">01</span><h3>Seu perfil de liderança para o mundo</h3></div>'+
+ '<p class="lead" style="max-width:none">Como o seu centro de gravidade se expressa nas dimensões que definem a criação de futuro. Não é o que você faz — é de onde você age.</p>'+
+ '<div class="grid2" style="margin-top:14px">'+
+ '<div class="sub"><h4>Cognição</h4><p class="body">'+st.cognicao+'</p></div>'+
+ '<div class="sub"><h4>Vida emocional</h4><p class="body">'+st.emocao+'</p></div>'+
+ '<div class="sub"><h4>Lógica de ação</h4><p class="body">'+st.acao+'</p></div>'+
+ '<div class="sub"><h4>Bússola ética</h4><p class="body">'+st.etica+'</p></div>'+
+ '<div class="sub"><h4>Trabalho e criação</h4><p class="body">'+st.trabalho+'</p></div>'+
+ '<div class="sub"><h4>Luz integrada</h4><p class="body">'+st.luz+'</p></div></div></div>'+
+
+ '<div class="grid2">'+
+ '<div class="card"><div class="sec-h" style="margin-top:0"><span class="n">02</span><h3>Psicógrafo das linhas</h3></div>'+
+ '<p class="body">Cada vértice é uma inteligência distinta. A forma irregular é o normal — a uniformidade seria o dado estranho. Leia o desenho, não só os números: o formato revela sua estratégia inconsciente de desenvolvimento.</p>'+
+ '<div class="viz2" style="margin:14px 0">'+radarSVG()+'</div>'+lineScales+
+ '<div class="divider"></div>'+
+ '<div class="kv"><span class="k">Linha-líder</span><span>'+r.leader.name+' · '+r.leader.score+'%</span></div>'+
+ '<div class="kv"><span class="k">Linha-atrasada · prioridade</span><span style="color:var(--luz)">'+r.lagger.name+' · '+r.lagger.score+'%</span></div>'+
+ '<p class="body">A intervenção de maior alavancagem trabalha a linha <b style="color:var(--luz);font-weight:500">atrasada</b>, não a mais forte. A maioria dos programas de desenvolvimento erra ao reforçar o que já é forte — o que aumenta o desequilíbrio e produz o especialista brilhante e desencarnado. Como desenvolver a sua: '+lag.crescer+'</p></div>'+
+
+ '<div class="card"><div class="sec-h" style="margin-top:0"><span class="n">03</span><h3>Acesso a estados</h3></div>'+
+ '<p class="body">Aqui medimos duas coisas diferentes: com que frequência você acessa cada estado e se esse acesso já é estável. Barra colorida indica platô (estrutura); barra cinza indica pico (evento).</p>'+
+ '<div style="margin-top:14px">'+stateScales+'</div><div class="divider"></div>'+
+ '<div class="sec-h" style="margin-top:0"><h3 style="font-size:18px">Matriz Estado × Estágio</h3></div>'+mx+
+ '<p class="body">Este é o motor da detecção pré-trans. O princípio: <b style="color:var(--text);font-weight:500">um mesmo estado é interpretado de formas radicalmente diferentes conforme o estágio que o filtra.</b> Uma abertura não-dual lida por uma estrutura mítica vira "fui escolhido"; lida por uma estrutura racional vira "curiosa alteração neurológica"; lida por uma estrutura inflada vira "eu transcendi". A célula acesa mostra onde a sua experiência encontra a sua estrutura — e portanto quais confusões a sua configuração torna prováveis.</p></div></div>'+
+
+ '<div class="card" style="margin-top:16px"><div class="sec-h" style="margin-top:0"><span class="n">04</span><h3>Falácias pré-trans e sombras a integrar</h3></div>'+
+ '<p class="lead" style="max-width:none">A falácia pré-trans é a confusão entre o que está <i>aquém</i> da razão (pré-pessoal, regressivo) e o que está <i>além</i> dela (transpessoal, integrativo). Como ambos são não-racionais, parecem iguais de fora — e é por isso que tanta regressão passa por elevação. Os alertas abaixo foram gerados pela sua configuração específica de linhas, estados e estágio.</p>'+
+ '<div style="margin-top:14px">'+
+ (r.flags.length?r.flags.map(function(f){return '<div class="flag" style="border-color:'+f.c+'"><b style="color:'+f.c+';font-weight:500">'+f.t+'.</b> '+f.d+'</div>';}).join('')
+  :'<p class="body">Seu perfil não acusa as confusões pré-trans mais comuns neste momento: linhas, estados e estágio estão razoavelmente alinhados entre si. Mantenha a vigilância — a sombra mais perigosa é sempre a que já nos parece integrada.</p>')+'</div>'+
+ '<div class="divider"></div><div class="grid2">'+
+ '<div class="sub"><h4>A sombra do seu estágio</h4><p class="body">'+st.sombra+'</p></div>'+
+ '<div class="sub"><h4>A falácia no seu limiar</h4><p class="body">'+st.pretrans+'</p></div></div>'+
+ '<div class="sub" style="margin-top:14px"><h4>Limiar dos 51%</h4>'+
+ '<div class="scale-tr" style="margin:10px 0"><div class="scale-fl" style="width:'+r.threshold+'%;background:var(--grad2)"></div><div class="scale-mk" style="left:51%;background:var(--luz);width:2px"></div></div><div class="note" style="margin:-4px 0 6px;text-align:left">marca dourada = limiar dos 51%</div>'+
+ '<p class="body"><b style="color:var(--text);font-weight:500">'+r.threshold+'%</b> das suas respostas-chave operam a partir da terceira camada. '+
+ (r.threshold>=51?'Você cruzou o limiar: o self kosmocêntrico já é a parte dominante do seu sistema. Respostas condicionadas ainda surgem, mas passam a ser contidas por uma perspectiva maior — você deixou de ser conduzido pela própria história.'
+  :'O ego condicionado ainda governa a maior parte das decisões. Cruzar os 51% é o ponto de virada: o momento em que o self autêntico se torna a parte dominante e a história pessoal deixa de comandar. O caminho não é acumular experiências, é integrar o que ainda opera nas sombras.')+'</p></div></div>'+
+
+ '<div class="card glow" style="margin-top:16px"><div class="sec-h" style="margin-top:0"><span class="n">05</span><h3>O vetor: de onde você está → para onde pode estar</h3></div>'+
+ '<p class="lead" style="max-width:none">'+st.proximo+'</p>'+
+ '<div class="grid3" style="margin-top:14px">'+
+ '<div class="sub"><div class="eyebrow" style="margin-bottom:6px">Próximo estágio</div><div class="serif" style="font-size:19px">'+STAGES[r.emergent].name+'</div>'+
+ '<p class="body">'+STAGES[r.emergent].alt+' · '+STAGES[r.emergent].camada+'. '+STAGES[r.emergent].lead+'</p></div>'+
+ '<div class="sub"><div class="eyebrow" style="margin-bottom:6px">Próximo estado a estabilizar</div><div class="serif" style="font-size:19px">'+ns.name+'</div>'+
+ '<p class="body">'+ns.sobre+' O trabalho é de pico para platô: regularidade sustentada por meses, não intensidade pontual.</p></div>'+
+ '<div class="sub"><div class="eyebrow" style="margin-bottom:6px">Próxima linha a crescer</div><div class="serif" style="font-size:19px">'+r.lagger.name+'</div>'+
+ '<p class="body">Sua alavanca de maior impacto: '+lag.crescer+'</p></div></div>'+
+ '<div class="divider"></div><div class="eyebrow" style="margin-bottom:8px">Cocriação de futuros kosmocêntricos</div>'+
+ '<p class="lead" style="max-width:none">A partir deste centro de gravidade, o que antes era impossível torna-se cocriável: <b style="color:var(--text);font-weight:400">'+st.futuros+'</b> Este é o princípio da dupla saída — cada salto interior destrava simultaneamente uma capacidade sistêmica no mundo. O desenvolvimento não termina no autoconhecimento; ele termina na pergunta: <i>e agora, o que eu consigo criar que antes era impossível?</i></p></div>'+
+
+ '<div class="card" style="margin-top:16px"><div class="sec-h" style="margin-top:0"><span class="n">06</span><h3>Práticas da Vida Super-Integral</h3></div>'+
+ '<p class="lead" style="max-width:none">Seis módulos, das práticas mais básicas às mais avançadas. As marcadas como <b style="color:var(--luz);font-weight:500">recomendadas</b> foram selecionadas pela sua linha atrasada, pelos alertas detectados e pelo próximo estado a estabilizar.</p>'+
+ '<p class="body"><b style="color:var(--text);font-weight:500">Princípio de dosagem:</b> duas a quatro práticas sustentadas por três meses produzem mais transformação do que dez praticadas por duas semanas. Prefira profundidade à variedade — e inclua sempre ao menos uma prática de sombra, sem a qual tudo o mais vira bypass.</p>'+
+ '<div id="prac-list" style="margin-top:10px"></div>'+
+ '<button class="btn no-print" id="toMonitor" style="margin-top:16px;width:100%">Gerar meu painel de monitoramento →</button></div>'+
+
+ '<div class="card glow no-print" style="margin-top:16px;text-align:center">'+
+ '<div class="eyebrow" style="margin-bottom:8px">Leve seu relatório com você</div>'+
+ '<h3 style="margin-bottom:6px">Salve o diagnóstico e as práticas em PDF</h3>'+
+ '<p class="lead" style="margin:0 auto 16px">Documento completo — centro de gravidade, psicógrafo, estados, matriz, falácias pré-trans, vetor de desenvolvimento e protocolo de práticas — para revisitar ao longo dos meses.</p>'+
+ '<button class="btn" id="savePdf" style="width:100%;max-width:380px;font-size:15px;padding:17px 26px">⤓  Salvar relatório completo em PDF</button></div>';
+
+ renderPractices(recIds);bindNav();
+ document.getElementById('toMonitor').onclick=async function(){await store.set('kosmos_ac_selected',Array.from(S.selected));go('monitor');};
+ const sp=document.getElementById('savePdf');if(sp)sp.onclick=savePDF;
+}
+function labelFor(tag){const l=LINES.filter(function(x){return x.id===tag;})[0];if(l)return 'linha '+l.name.split(' ')[0];
+ const s=STATES.filter(function(x){return x.id===tag;})[0];if(s)return 'estado '+s.name.split(' ')[0];return tag;}
+function renderPractices(recIds){const w=document.getElementById('prac-list');let h='';
+ MODS.forEach(function(m){h+='<div class="mod-lbl" style="color:'+m.c+'">'+m.name+'</div>';
+  [1,2,3].forEach(function(n){PRACTICES.filter(function(p){return p.mod===m.id&&p.n===n;}).forEach(function(p){
+   const rec=recIds.indexOf(p.id)>-1,sel=S.selected.has(p.id);
+   h+='<div class="practice'+(sel?' sel':'')+'" data-p="'+p.id+'"><div class="chk">'+(sel?'✓':'')+'</div><div style="flex:1">'+
+   '<div style="font-weight:500;font-size:14px">'+p.title+' <span class="badge" style="background:rgba(120,140,200,.10);color:var(--muted2);margin-left:4px">'+NIV[p.n]+'</span>'+
+   (rec?' <span class="badge" style="background:rgba(240,192,96,.15);color:var(--luz)">recomendada</span>':'')+'</div>'+
+   '<div class="note" style="margin:3px 0 5px">'+p.dur+' · desenvolve '+labelFor(p.tag)+'</div>'+
+   '<div style="font-size:12.5px;color:var(--muted2)">'+p.desc+'</div>'+
+   '<div style="font-size:12px;color:var(--muted2);margin-top:6px"><b style="color:var(--text);font-weight:500">Como fazer:</b> '+p.como+'</div>'+
+   '<div style="font-size:11px;color:'+m.c+';margin-top:6px;font-family:var(--ff-m)">↗ '+p.fut+'</div></div></div>';});});});
+ w.innerHTML=h;
+ w.querySelectorAll('.practice').forEach(function(el){el.onclick=function(){const id=el.dataset.p;
+  if(S.selected.has(id))S.selected.delete(id);else S.selected.add(id);renderPractices(recIds);};});}
+
+/* ════════ PDF ════════ */
+async function savePDF(){
+ const btn=document.getElementById('savePdf'),el=document.getElementById('app');
+ if(!window.html2pdf){window.print();return;}
+ const isMon=S.screen==='monitor';
+ const nm=(S.name||'').replace(/[\\/:*?"<>|]/g,'').trim();
+ const dateStr=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+ const sub=isMon?'Painel de Evolução':'Relatório da Terceira Camada';
+ const fn='Kosmos - '+(isMon?'Painel de Evolução':'Assessment Completo')+(nm?' - '+nm:'')+'.pdf';
+ const hdr=document.createElement('div');
+ hdr.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px 14px;border-bottom:1px solid rgba(120,140,200,.18);margin-bottom:20px">'+
+ '<div style="display:flex;align-items:center;gap:11px"><div style="width:26px;height:26px;border-radius:50%;background:var(--grad)"></div>'+
+ '<div style="text-align:left"><div class="serif" style="font-size:21px;letter-spacing:.03em;line-height:1">Kosmos</div>'+
+ '<div style="font-family:var(--ff-m);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-top:2px">'+sub+'</div></div></div>'+
+ '<div style="text-align:right;font-family:var(--ff-m);font-size:9px;color:var(--muted2);line-height:1.6">'+(nm?nm+'<br>':'')+'Gerado em '+dateStr+'</div></div>';
+ const old=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Gerando PDF...';}
+ const hide=Array.prototype.slice.call(document.querySelectorAll('.no-print'));
+ hide.forEach(function(e){e.style.display='none';});
+ el.insertBefore(hdr,el.firstChild);
+ const opt={margin:[8,8,10,8],filename:fn,image:{type:'jpeg',quality:0.97},
+  html2canvas:{scale:2,backgroundColor:'#020407',useCORS:true,windowWidth:el.scrollWidth},
+  jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy'],avoid:'.card'}};
+ try{await window.html2pdf().set(opt).from(el).save();}
+ catch(e){if(hdr.parentNode)hdr.remove();window.print();}
+ finally{if(hdr.parentNode)hdr.remove();hide.forEach(function(e){e.style.display='';});if(btn){btn.disabled=false;btn.textContent=old;}}
+}
+
+/* ════════ MONITORAMENTO ════════ */
+function weekKeys(){const out=[],now=new Date();
+ for(let i=7;i>=0;i--){const d=new Date(now);d.setDate(now.getDate()-i*7);
+  const y=d.getFullYear(),j=new Date(y,0,1);const wk=Math.ceil((((d-j)/86400000)+j.getDay()+1)/7);
+  out.push({key:y+'-W'+wk,label:'S'+wk});}return out;}
+function trendSVG(sn){const W=300,H=140,pad=24;
+ if(!sn.length)return '<svg width="'+W+'" height="'+H+'"><text x="'+(W/2)+'" y="'+(H/2)+'" text-anchor="middle" fill="#4a5878" font-size="11" font-family="DM Mono">sem fotografias ainda</text></svg>';
+ const pts=sn.map(function(s,i){const x=pad+(sn.length===1?0.5:i/(sn.length-1))*(W-2*pad);const y=H-pad-(s.overall/100)*(H-2*pad);return[x,y,s];});
+ let g='';for(let i=0;i<=4;i++){const y=pad+i/4*(H-2*pad);g+='<line x1="'+pad+'" y1="'+y+'" x2="'+(W-pad)+'" y2="'+y+'" stroke="rgba(120,140,200,0.08)"/>';}
+ const path=pts.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1];}).join(' ');
+ const dots=pts.map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.5" fill="'+C[p[2].primary]+'"/>';}).join('');
+ return '<svg width="'+W+'" height="'+H+'"><defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#6272f0"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs>'+g+
+ '<path d="'+path+'" fill="none" stroke="url(#tg)" stroke-width="2"/>'+dots+'</svg>';}
+async function renderMonitor(){
+ S.log=await store.get('kosmos_ac_log')||{};S.snaps=await store.get('kosmos_ac_snaps')||[];
+ const r=S.result,sel=Array.from(S.selected),wks=weekKeys();
+ const pr=sel.length?sel.map(function(id){const p=PRACTICES.filter(function(x){return x.id===id;})[0];if(!p)return '';
+  const m=MODS.filter(function(x){return x.id===p.mod;})[0],log=S.log[id]||{};
+  const streak=wks.filter(function(w){return log[w.key];}).length;
+  return '<div class="card" style="margin-bottom:10px;padding:15px 17px"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">'+
+  '<div><span style="font-weight:500">'+p.title+'</span> <span class="theo" style="color:'+m.c+'">'+m.name.split(' ')[0]+'</span> <span class="theo">'+NIV[p.n]+'</span></div>'+
+  '<span class="streak">'+streak+'/8 semanas</span></div><div class="note" style="margin-top:3px">'+p.dur+'</div>'+
+  '<div class="week-grid">'+wks.map(function(w){return '<div class="wk'+(log[w.key]?' done':'')+'" data-p="'+id+'" data-w="'+w.key+'" style="'+(log[w.key]?'background:'+m.c:'')+'">'+w.label+'</div>';}).join('')+'</div></div>';}).join('')
+  :'<p class="lead">Você ainda não selecionou práticas. Volte ao relatório para escolhê-las.</p>';
+ app().innerHTML=navBar('monitor')+
+ '<div class="eyebrow" style="margin-bottom:6px">Painel de evolução · '+new Date().toLocaleDateString('pt-BR',{month:'long',year:'numeric'})+'</div>'+
+ '<h2 style="margin-bottom:6px">Acompanhe sua jornada ao longo dos meses</h2>'+
+ '<p class="lead" style="margin-bottom:20px">Registre suas práticas a cada semana e tire uma fotografia mensal dos seus níveis. Com o tempo, o painel revela a curva real da sua evolução — não a percebida. Essa diferença entre curva real e percebida é, ela mesma, um instrumento anti-bypass.</p>'+
+ '<div class="grid2"><div class="card"><div class="sec-h" style="margin-top:0"><h3>Níveis ao longo do tempo</h3></div>'+
+ '<div style="text-align:center;margin:6px 0 10px">'+trendSVG(S.snaps)+'</div>'+
+ '<div class="kv"><span class="k">Coeficiente atual</span><span>'+r.overall+'%</span></div>'+
+ '<div class="kv"><span class="k">Estágio atual</span><span>'+STAGES[r.primary].name+'</span></div>'+
+ '<div class="kv"><span class="k">Fotografias registradas</span><span>'+S.snaps.length+'</span></div>'+
+ '<button class="snap-btn no-print" id="snap" style="margin-top:12px;width:100%">+ Registrar fotografia deste mês</button>'+
+ '<p class="note" style="margin-top:8px">Uma fotografia por mês. Para releitura completa, refaça o assessment a cada três a seis meses — mudanças de estágio levam anos, mas as linhas se movem em meses.</p></div>'+
+ '<div class="card"><div class="sec-h" style="margin-top:0"><h3>Psicógrafo de referência</h3></div><div class="viz2">'+radarSVG()+'</div>'+
+ '<p class="body">Sua linha-prioridade segue sendo <b style="color:var(--luz);font-weight:500">'+r.lagger.name+'</b>. Observe se ela sobe nas próximas fotografias — é o indicador mais honesto de que o desenvolvimento está acontecendo, e não apenas se acumulando onde já era forte.</p></div></div>'+
+ '<div class="card" style="margin-top:16px"><div class="sec-h" style="margin-top:0"><h3>Suas práticas · check-in semanal</h3></div>'+
+ '<p class="note" style="margin-bottom:14px">Toque numa semana para marcar como cumprida. S = número da semana do ano.</p>'+pr+'</div>'+
+ '<div class="card glow no-print" style="margin-top:16px;text-align:center"><h3 style="margin-bottom:6px">Exportar este painel</h3>'+
+ '<p class="lead" style="margin:0 auto 14px">Salve um retrato do seu progresso deste mês em PDF para acompanhar a evolução ao longo do tempo.</p>'+
+ '<button class="btn" id="savePdf" style="width:100%;max-width:340px">⤓  Salvar painel em PDF</button></div>'+
+ '<p class="note" style="text-align:center;margin-top:18px">'+(PERSISTS?'Seu progresso é salvo automaticamente neste navegador.':'Modo de sessão: o progresso não será mantido ao fechar a aba neste ambiente.')+'</p>';
+ bindNav();
+ const spm=document.getElementById('savePdf');if(spm)spm.onclick=savePDF;
+ document.querySelectorAll('.wk').forEach(function(w){w.onclick=async function(){const id=w.dataset.p,k=w.dataset.w;
+  S.log[id]=S.log[id]||{};S.log[id][k]=!S.log[id][k];await store.set('kosmos_ac_log',S.log);renderMonitor();};});
+ document.getElementById('snap').onclick=async function(){
+  S.snaps.push({date:Date.now(),overall:r.overall,primary:r.primary});
+  await store.set('kosmos_ac_snaps',S.snaps);renderMonitor();};
+}
+
+/* ════════ ROUTER ════════ */
+function render(){const el=app();el.classList.remove('fade');void el.offsetWidth;el.classList.add('fade');
+ if(S.screen==='intro')return renderIntro();
+ if(S.screen==='assess')return renderAssess();
+ if(S.screen==='capture')return renderCapture();
+ if(S.screen==='dash')return renderDash();
+ if(S.screen==='monitor')return renderMonitor();}
+render();
+</script>
+</body>
+</html>
